@@ -11,11 +11,10 @@
 
 **Структура материалов:**
 
-- Лекции: `docs/lectures/` (тексты) и `docs/lectures/slides/` (экспорт слайдов).
-- Практики: `docs/practices/` (+ `docs/practices/solutions/` для разборов).
-- Домашние: `docs/homeworks/` (+ `templates/`, `solutions/`).
-- Проект: `docs/project/` (+ `checkpoints/`, `examples/`).
-- Контрольные: `docs/exams/`.
+- Практики: `./practices/`
+- Домашние: `./homeworks/` 
+- Проект: `./project/` (+ `examples/`).
+- Литература: `./books/`.
 
 ## Ожидаемые результаты обучения (измеримые)
 
