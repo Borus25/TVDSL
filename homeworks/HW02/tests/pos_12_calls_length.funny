@@ -1,0 +1,14 @@
+function sq(x) returns r { r = x * x; }
+
+function sum(a, n) returns s
+  requires n >= 0 and n <= length(a)
+{
+  s = 0;
+  i = 0;
+  while (i < n) invariant i >= 0 and i <= n {
+    s = s + a[i];
+    i = i + 1;
+  }
+  s = sq(s) + max(s, 0, sq(1));
+  k = f();
+}

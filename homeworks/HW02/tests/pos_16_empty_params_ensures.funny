@@ -1,0 +1,1 @@
+function zero() returns r ensures r == 0 { r = 0; }

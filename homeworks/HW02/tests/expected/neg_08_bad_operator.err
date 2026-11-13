@@ -1,0 +1,5 @@
+error: expected ')' but got '=' at 2:9
+error: expected expression but got '>' at 3:10
+error: unexpected character '&' at 4:9
+error: expected ';' but got '1' at 4:11
+error: expected expression but got '*' at 5:10

@@ -1,0 +1,1 @@
+function f() returns r uses x { r = 1; }

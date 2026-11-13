@@ -1,0 +1,6 @@
+function abs(x) returns r
+  requires x >= -100 and x <= 100
+  ensures r >= 0 and (r == x or r == -x)
+{
+  if (x < 0) { r = -x; } else { r = x; }
+}

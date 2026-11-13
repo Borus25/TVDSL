@@ -1,0 +1,255 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "prec",
+      "params": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "2:3"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "op": "-",
+              "left": {
+                "node": "BinaryOp",
+                "op": "+",
+                "left": {
+                  "node": "UnaryOp",
+                  "op": "-",
+                  "operand": {
+                    "node": "Ident",
+                    "name": "a",
+                    "pos": "2:8"
+                  },
+                  "pos": "2:7"
+                },
+                "right": {
+                  "node": "BinaryOp",
+                  "op": "*",
+                  "left": {
+                    "node": "Ident",
+                    "name": "b",
+                    "pos": "2:12"
+                  },
+                  "right": {
+                    "node": "Ident",
+                    "name": "c",
+                    "pos": "2:16"
+                  },
+                  "pos": "2:12"
+                },
+                "pos": "2:7"
+              },
+              "right": {
+                "node": "BinaryOp",
+                "op": "/",
+                "left": {
+                  "node": "Ident",
+                  "name": "d",
+                  "pos": "2:20"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 2,
+                  "pos": "2:24"
+                },
+                "pos": "2:20"
+              },
+              "pos": "2:7"
+            },
+            "pos": "2:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "3:3"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "op": "-",
+              "left": {
+                "node": "BinaryOp",
+                "op": "-",
+                "left": {
+                  "node": "Ident",
+                  "name": "a",
+                  "pos": "3:7"
+                },
+                "right": {
+                  "node": "Ident",
+                  "name": "b",
+                  "pos": "3:11"
+                },
+                "pos": "3:7"
+              },
+              "right": {
+                "node": "Ident",
+                "name": "c",
+                "pos": "3:15"
+              },
+              "pos": "3:7"
+            },
+            "pos": "3:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "4:3"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "op": "*",
+              "left": {
+                "node": "BinaryOp",
+                "op": "+",
+                "left": {
+                  "node": "Ident",
+                  "name": "a",
+                  "pos": "4:8"
+                },
+                "right": {
+                  "node": "Ident",
+                  "name": "b",
+                  "pos": "4:12"
+                },
+                "pos": "4:8"
+              },
+              "right": {
+                "node": "UnaryOp",
+                "op": "-",
+                "operand": {
+                  "node": "Ident",
+                  "name": "c",
+                  "pos": "4:18"
+                },
+                "pos": "4:17"
+              },
+              "pos": "4:8"
+            },
+            "pos": "4:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "5:3"
+            },
+            "value": {
+              "node": "UnaryOp",
+              "op": "-",
+              "operand": {
+                "node": "UnaryOp",
+                "op": "-",
+                "operand": {
+                  "node": "Ident",
+                  "name": "a",
+                  "pos": "5:11"
+                },
+                "pos": "5:9"
+              },
+              "pos": "5:7"
+            },
+            "pos": "5:3"
+          },
+          {
+            "node": "Assert",
+            "expr": {
+              "node": "BinaryOp",
+              "op": "or",
+              "left": {
+                "node": "UnaryOp",
+                "op": "not",
+                "operand": {
+                  "node": "BinaryOp",
+                  "op": "==",
+                  "left": {
+                    "node": "Ident",
+                    "name": "a",
+                    "pos": "6:14"
+                  },
+                  "right": {
+                    "node": "Ident",
+                    "name": "b",
+                    "pos": "6:19"
+                  },
+                  "pos": "6:14"
+                },
+                "pos": "6:10"
+              },
+              "right": {
+                "node": "BinaryOp",
+                "op": "and",
+                "left": {
+                  "node": "BinaryOp",
+                  "op": "<",
+                  "left": {
+                    "node": "Ident",
+                    "name": "c",
+                    "pos": "6:24"
+                  },
+                  "right": {
+                    "node": "Ident",
+                    "name": "d",
+                    "pos": "6:28"
+                  },
+                  "pos": "6:24"
+                },
+                "right": {
+                  "node": "Bool",
+                  "value": true,
+                  "pos": "6:34"
+                },
+                "pos": "6:24"
+              },
+              "pos": "6:10"
+            },
+            "pos": "6:3"
+          },
+          {
+            "node": "Assert",
+            "expr": {
+              "node": "UnaryOp",
+              "op": "not",
+              "operand": {
+                "node": "UnaryOp",
+                "op": "not",
+                "operand": {
+                  "node": "Bool",
+                  "value": false,
+                  "pos": "7:18"
+                },
+                "pos": "7:14"
+              },
+              "pos": "7:10"
+            },
+            "pos": "7:3"
+          }
+        ],
+        "pos": "1:37"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

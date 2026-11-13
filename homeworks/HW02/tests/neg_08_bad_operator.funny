@@ -1,0 +1,6 @@
+function f(x) returns r {
+  if (x =< 0) { r = 0; }
+  r = x <> 1;
+  r = x & 1;
+  r = x ** 2;
+}

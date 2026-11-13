@@ -1,0 +1,2 @@
+error: unexpected '}', expected 'function' or end of input at 1:1
+error: unexpected '42', expected 'function' or end of input at 1:44

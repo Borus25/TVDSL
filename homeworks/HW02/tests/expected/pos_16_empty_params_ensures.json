@@ -1,0 +1,49 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "zero",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": {
+        "node": "BinaryOp",
+        "op": "==",
+        "left": {
+          "node": "Ident",
+          "name": "r",
+          "pos": "1:35"
+        },
+        "right": {
+          "node": "Int",
+          "value": 0,
+          "pos": "1:40"
+        },
+        "pos": "1:35"
+      },
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "1:44"
+            },
+            "value": {
+              "node": "Int",
+              "value": 0,
+              "pos": "1:48"
+            },
+            "pos": "1:44"
+          }
+        ],
+        "pos": "1:42"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

@@ -1,0 +1,4 @@
+error: unexpected character '@' at 2:9
+error: expected ';' but got '1' at 2:11
+error: unexpected characters '&&' at 3:9
+error: expected ';' but got '1' at 3:12

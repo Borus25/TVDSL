@@ -1,0 +1,18 @@
+// Демо-программа для защиты: python3 main.py demo.funny --sexp
+function max(a, b) returns r
+  ensures r >= a and r >= b
+{
+  if (a > b) { r = a; } else { r = b; }
+}
+
+function sum(arr, n) returns s
+  requires n >= 0 and n <= length(arr)
+{
+  s = 0;
+  i = 0;
+  while (i < n) invariant i <= n {
+    s = s + arr[i];
+    i = i + 1;
+  }
+  arr[0] = max(s, 0);
+}

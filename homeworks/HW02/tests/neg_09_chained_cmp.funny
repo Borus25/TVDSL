@@ -1,0 +1,3 @@
+function f(a, b, c) returns r {
+  assert a < b < c;
+}

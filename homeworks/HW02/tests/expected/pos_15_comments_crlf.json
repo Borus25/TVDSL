@@ -1,0 +1,37 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "c",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "3:3"
+            },
+            "value": {
+              "node": "Ident",
+              "name": "x",
+              "pos": "3:7"
+            },
+            "pos": "3:3"
+          }
+        ],
+        "pos": "2:25"
+      },
+      "pos": "2:1"
+    }
+  ],
+  "pos": "1:1"
+}

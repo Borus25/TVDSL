@@ -1,0 +1,4 @@
+function f(x) returns r {
+  r = 1;
+  else { r = 2; }
+}

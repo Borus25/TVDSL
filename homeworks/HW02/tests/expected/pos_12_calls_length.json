@@ -1,0 +1,321 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "sq",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "1:28"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "op": "*",
+              "left": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "1:32"
+              },
+              "right": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "1:36"
+              },
+              "pos": "1:32"
+            },
+            "pos": "1:28"
+          }
+        ],
+        "pos": "1:26"
+      },
+      "pos": "1:1"
+    },
+    {
+      "node": "Function",
+      "name": "sum",
+      "params": [
+        "a",
+        "n"
+      ],
+      "returns": "s",
+      "requires": {
+        "node": "BinaryOp",
+        "op": "and",
+        "left": {
+          "node": "BinaryOp",
+          "op": ">=",
+          "left": {
+            "node": "Ident",
+            "name": "n",
+            "pos": "4:12"
+          },
+          "right": {
+            "node": "Int",
+            "value": 0,
+            "pos": "4:17"
+          },
+          "pos": "4:12"
+        },
+        "right": {
+          "node": "BinaryOp",
+          "op": "<=",
+          "left": {
+            "node": "Ident",
+            "name": "n",
+            "pos": "4:23"
+          },
+          "right": {
+            "node": "Call",
+            "name": "length",
+            "args": [
+              {
+                "node": "Ident",
+                "name": "a",
+                "pos": "4:35"
+              }
+            ],
+            "pos": "4:28"
+          },
+          "pos": "4:23"
+        },
+        "pos": "4:12"
+      },
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "s",
+              "pos": "6:3"
+            },
+            "value": {
+              "node": "Int",
+              "value": 0,
+              "pos": "6:7"
+            },
+            "pos": "6:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "i",
+              "pos": "7:3"
+            },
+            "value": {
+              "node": "Int",
+              "value": 0,
+              "pos": "7:7"
+            },
+            "pos": "7:3"
+          },
+          {
+            "node": "While",
+            "cond": {
+              "node": "BinaryOp",
+              "op": "<",
+              "left": {
+                "node": "Ident",
+                "name": "i",
+                "pos": "8:10"
+              },
+              "right": {
+                "node": "Ident",
+                "name": "n",
+                "pos": "8:14"
+              },
+              "pos": "8:10"
+            },
+            "body": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "s",
+                    "pos": "9:5"
+                  },
+                  "value": {
+                    "node": "BinaryOp",
+                    "op": "+",
+                    "left": {
+                      "node": "Ident",
+                      "name": "s",
+                      "pos": "9:9"
+                    },
+                    "right": {
+                      "node": "ArrayIndex",
+                      "base": {
+                        "node": "Ident",
+                        "name": "a",
+                        "pos": "9:13"
+                      },
+                      "index": {
+                        "node": "Ident",
+                        "name": "i",
+                        "pos": "9:15"
+                      },
+                      "pos": "9:13"
+                    },
+                    "pos": "9:9"
+                  },
+                  "pos": "9:5"
+                },
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "i",
+                    "pos": "10:5"
+                  },
+                  "value": {
+                    "node": "BinaryOp",
+                    "op": "+",
+                    "left": {
+                      "node": "Ident",
+                      "name": "i",
+                      "pos": "10:9"
+                    },
+                    "right": {
+                      "node": "Int",
+                      "value": 1,
+                      "pos": "10:13"
+                    },
+                    "pos": "10:9"
+                  },
+                  "pos": "10:5"
+                }
+              ],
+              "pos": "8:45"
+            },
+            "invariant": {
+              "node": "BinaryOp",
+              "op": "and",
+              "left": {
+                "node": "BinaryOp",
+                "op": ">=",
+                "left": {
+                  "node": "Ident",
+                  "name": "i",
+                  "pos": "8:27"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 0,
+                  "pos": "8:32"
+                },
+                "pos": "8:27"
+              },
+              "right": {
+                "node": "BinaryOp",
+                "op": "<=",
+                "left": {
+                  "node": "Ident",
+                  "name": "i",
+                  "pos": "8:38"
+                },
+                "right": {
+                  "node": "Ident",
+                  "name": "n",
+                  "pos": "8:43"
+                },
+                "pos": "8:38"
+              },
+              "pos": "8:27"
+            },
+            "pos": "8:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "s",
+              "pos": "12:3"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "op": "+",
+              "left": {
+                "node": "Call",
+                "name": "sq",
+                "args": [
+                  {
+                    "node": "Ident",
+                    "name": "s",
+                    "pos": "12:10"
+                  }
+                ],
+                "pos": "12:7"
+              },
+              "right": {
+                "node": "Call",
+                "name": "max",
+                "args": [
+                  {
+                    "node": "Ident",
+                    "name": "s",
+                    "pos": "12:19"
+                  },
+                  {
+                    "node": "Int",
+                    "value": 0,
+                    "pos": "12:22"
+                  },
+                  {
+                    "node": "Call",
+                    "name": "sq",
+                    "args": [
+                      {
+                        "node": "Int",
+                        "value": 1,
+                        "pos": "12:28"
+                      }
+                    ],
+                    "pos": "12:25"
+                  }
+                ],
+                "pos": "12:15"
+              },
+              "pos": "12:7"
+            },
+            "pos": "12:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "k",
+              "pos": "13:3"
+            },
+            "value": {
+              "node": "Call",
+              "name": "f",
+              "args": [],
+              "pos": "13:7"
+            },
+            "pos": "13:3"
+          }
+        ],
+        "pos": "5:1"
+      },
+      "pos": "3:1"
+    }
+  ],
+  "pos": "1:1"
+}

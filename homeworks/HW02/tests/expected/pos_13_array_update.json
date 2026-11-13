@@ -1,0 +1,127 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "swap",
+      "params": [
+        "a",
+        "i",
+        "j"
+      ],
+      "returns": "b",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "t",
+              "pos": "2:3"
+            },
+            "value": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "2:7"
+              },
+              "index": {
+                "node": "Ident",
+                "name": "i",
+                "pos": "2:9"
+              },
+              "pos": "2:7"
+            },
+            "pos": "2:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "3:3"
+              },
+              "index": {
+                "node": "Ident",
+                "name": "i",
+                "pos": "3:5"
+              },
+              "pos": "3:3"
+            },
+            "value": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "3:10"
+              },
+              "index": {
+                "node": "Ident",
+                "name": "j",
+                "pos": "3:12"
+              },
+              "pos": "3:10"
+            },
+            "pos": "3:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "4:3"
+              },
+              "index": {
+                "node": "BinaryOp",
+                "op": "+",
+                "left": {
+                  "node": "Ident",
+                  "name": "j",
+                  "pos": "4:5"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 0,
+                  "pos": "4:9"
+                },
+                "pos": "4:5"
+              },
+              "pos": "4:3"
+            },
+            "value": {
+              "node": "Ident",
+              "name": "t",
+              "pos": "4:14"
+            },
+            "pos": "4:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "b",
+              "pos": "5:3"
+            },
+            "value": {
+              "node": "Ident",
+              "name": "a",
+              "pos": "5:7"
+            },
+            "pos": "5:3"
+          }
+        ],
+        "pos": "1:34"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

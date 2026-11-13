@@ -1,0 +1,51 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "While",
+            "cond": {
+              "node": "Bool",
+              "value": true,
+              "pos": "1:33"
+            },
+            "body": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "r",
+                    "pos": "1:41"
+                  },
+                  "value": {
+                    "node": "Int",
+                    "value": 1,
+                    "pos": "1:45"
+                  },
+                  "pos": "1:41"
+                }
+              ],
+              "pos": "1:39"
+            },
+            "invariant": null,
+            "pos": "1:26"
+          }
+        ],
+        "pos": "1:24"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

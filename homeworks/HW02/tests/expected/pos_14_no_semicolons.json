@@ -1,0 +1,98 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "nosemi",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "3:3"
+            },
+            "value": {
+              "node": "Ident",
+              "name": "x",
+              "pos": "3:7"
+            },
+            "pos": "3:3"
+          },
+          {
+            "node": "Assume",
+            "expr": {
+              "node": "BinaryOp",
+              "op": ">",
+              "left": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "4:10"
+              },
+              "right": {
+                "node": "Int",
+                "value": 0,
+                "pos": "4:14"
+              },
+              "pos": "4:10"
+            },
+            "pos": "4:3"
+          },
+          {
+            "node": "Assert",
+            "expr": {
+              "node": "BinaryOp",
+              "op": "==",
+              "left": {
+                "node": "Ident",
+                "name": "r",
+                "pos": "5:10"
+              },
+              "right": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "5:15"
+              },
+              "pos": "5:10"
+            },
+            "pos": "5:3"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "6:3"
+              },
+              "index": {
+                "node": "Int",
+                "value": 0,
+                "pos": "6:5"
+              },
+              "pos": "6:3"
+            },
+            "value": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "6:10"
+            },
+            "pos": "6:3"
+          }
+        ],
+        "pos": "2:30"
+      },
+      "pos": "2:1"
+    }
+  ],
+  "pos": "1:1"
+}

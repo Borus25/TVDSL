@@ -1,0 +1,3 @@
+function f(x) returns r {
+  r == x;
+}

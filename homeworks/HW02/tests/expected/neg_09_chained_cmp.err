@@ -1,0 +1,1 @@
+error: unexpected '<' at 2:16 (comparisons cannot be chained, use 'and')

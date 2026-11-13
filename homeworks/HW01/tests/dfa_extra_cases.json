@@ -1,0 +1,537 @@
+[
+  {
+    "name": "empty",
+    "input": "",
+    "expected_tokens": [],
+    "expected_error_positions": []
+  },
+  {
+    "name": "whitespace only",
+    "input": "   \t\r\n",
+    "expected_tokens": [],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'0'",
+    "input": "0",
+    "expected_tokens": [
+      [
+        "INT",
+        "0"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'00'",
+    "input": "00",
+    "expected_tokens": [
+      [
+        "INT",
+        "0"
+      ],
+      [
+        "INT",
+        "0"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'01'",
+    "input": "01",
+    "expected_tokens": [
+      [
+        "INT",
+        "0"
+      ],
+      [
+        "INT",
+        "1"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'42'",
+    "input": "42",
+    "expected_tokens": [
+      [
+        "INT",
+        "42"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'100'",
+    "input": "100",
+    "expected_tokens": [
+      [
+        "INT",
+        "100"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'foo'",
+    "input": "foo",
+    "expected_tokens": [
+      [
+        "IDENT",
+        "foo"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'foo_bar'",
+    "input": "foo_bar",
+    "expected_tokens": [
+      [
+        "IDENT",
+        "foo_bar"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'_x'",
+    "input": "_x",
+    "expected_tokens": [
+      [
+        "IDENT",
+        "_x"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "'_1'",
+    "input": "_1",
+    "expected_tokens": [
+      [
+        "IDENT",
+        "_1"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword function",
+    "input": "function",
+    "expected_tokens": [
+      [
+        "KW_FUNCTION",
+        "function"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword returns",
+    "input": "returns",
+    "expected_tokens": [
+      [
+        "KW_RETURNS",
+        "returns"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword uses",
+    "input": "uses",
+    "expected_tokens": [
+      [
+        "KW_USES",
+        "uses"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword while",
+    "input": "while",
+    "expected_tokens": [
+      [
+        "KW_WHILE",
+        "while"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword if",
+    "input": "if",
+    "expected_tokens": [
+      [
+        "KW_IF",
+        "if"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword else",
+    "input": "else",
+    "expected_tokens": [
+      [
+        "KW_ELSE",
+        "else"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword true",
+    "input": "true",
+    "expected_tokens": [
+      [
+        "KW_TRUE",
+        "true"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword false",
+    "input": "false",
+    "expected_tokens": [
+      [
+        "KW_FALSE",
+        "false"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword not",
+    "input": "not",
+    "expected_tokens": [
+      [
+        "KW_NOT",
+        "not"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword and",
+    "input": "and",
+    "expected_tokens": [
+      [
+        "KW_AND",
+        "and"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "keyword or",
+    "input": "or",
+    "expected_tokens": [
+      [
+        "KW_OR",
+        "or"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "identifier functio",
+    "input": "functio",
+    "expected_tokens": [
+      [
+        "IDENT",
+        "functio"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "identifier iff",
+    "input": "iff",
+    "expected_tokens": [
+      [
+        "IDENT",
+        "iff"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '('",
+    "input": "(",
+    "expected_tokens": [
+      [
+        "LPAREN",
+        "("
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter ')'",
+    "input": ")",
+    "expected_tokens": [
+      [
+        "RPAREN",
+        ")"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '['",
+    "input": "[",
+    "expected_tokens": [
+      [
+        "LBRACKET",
+        "["
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter ']'",
+    "input": "]",
+    "expected_tokens": [
+      [
+        "RBRACKET",
+        "]"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '{'",
+    "input": "{",
+    "expected_tokens": [
+      [
+        "LBRACE",
+        "{"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '}'",
+    "input": "}",
+    "expected_tokens": [
+      [
+        "RBRACE",
+        "}"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter ','",
+    "input": ",",
+    "expected_tokens": [
+      [
+        "COMMA",
+        ","
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter ';'",
+    "input": ";",
+    "expected_tokens": [
+      [
+        "SEMI",
+        ";"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '+'",
+    "input": "+",
+    "expected_tokens": [
+      [
+        "PLUS",
+        "+"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '-'",
+    "input": "-",
+    "expected_tokens": [
+      [
+        "MINUS",
+        "-"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '*'",
+    "input": "*",
+    "expected_tokens": [
+      [
+        "STAR",
+        "*"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '/'",
+    "input": "/",
+    "expected_tokens": [
+      [
+        "SLASH",
+        "/"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '=='",
+    "input": "==",
+    "expected_tokens": [
+      [
+        "EQEQ",
+        "=="
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '!='",
+    "input": "!=",
+    "expected_tokens": [
+      [
+        "NEQ",
+        "!="
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '<='",
+    "input": "<=",
+    "expected_tokens": [
+      [
+        "LE",
+        "<="
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '>='",
+    "input": ">=",
+    "expected_tokens": [
+      [
+        "GE",
+        ">="
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '<'",
+    "input": "<",
+    "expected_tokens": [
+      [
+        "LT",
+        "<"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '>'",
+    "input": ">",
+    "expected_tokens": [
+      [
+        "GT",
+        ">"
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "delimiter '='",
+    "input": "=",
+    "expected_tokens": [
+      [
+        "ASSIGN",
+        "="
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "maximal munch ===",
+    "input": "===",
+    "expected_tokens": [
+      [
+        "EQEQ",
+        "=="
+      ],
+      [
+        "ASSIGN",
+        "="
+      ]
+    ],
+    "expected_error_positions": []
+  },
+  {
+    "name": "comment line",
+    "input": "// comment",
+    "expected_tokens": [],
+    "expected_error_positions": []
+  },
+  {
+    "name": "empty comment",
+    "input": "//",
+    "expected_tokens": [],
+    "expected_error_positions": []
+  },
+  {
+    "name": "non ASCII pi",
+    "input": "π",
+    "expected_tokens": [],
+    "expected_error_positions": [
+      0
+    ]
+  },
+  {
+    "name": "unknown ASCII",
+    "input": "@",
+    "expected_tokens": [],
+    "expected_error_positions": [
+      0
+    ]
+  },
+  {
+    "name": "outside ASCII U+0080",
+    "input": "",
+    "expected_tokens": [],
+    "expected_error_positions": [
+      0
+    ]
+  },
+  {
+    "name": "token followed by non ASCII",
+    "input": "1π",
+    "expected_tokens": [
+      [
+        "INT",
+        "1"
+      ]
+    ],
+    "expected_error_positions": [
+      1
+    ]
+  }
+]

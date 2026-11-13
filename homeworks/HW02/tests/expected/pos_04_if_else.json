@@ -1,0 +1,82 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "If",
+            "cond": {
+              "node": "BinaryOp",
+              "op": ">",
+              "left": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "1:31"
+              },
+              "right": {
+                "node": "Int",
+                "value": 0,
+                "pos": "1:35"
+              },
+              "pos": "1:31"
+            },
+            "then": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "r",
+                    "pos": "1:40"
+                  },
+                  "value": {
+                    "node": "Ident",
+                    "name": "x",
+                    "pos": "1:44"
+                  },
+                  "pos": "1:40"
+                }
+              ],
+              "pos": "1:38"
+            },
+            "else": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "r",
+                    "pos": "1:56"
+                  },
+                  "value": {
+                    "node": "Int",
+                    "value": 0,
+                    "pos": "1:60"
+                  },
+                  "pos": "1:56"
+                }
+              ],
+              "pos": "1:54"
+            },
+            "pos": "1:27"
+          }
+        ],
+        "pos": "1:25"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

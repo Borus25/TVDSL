@@ -1,0 +1,5 @@
+function check(x) returns r {
+  assume x != 0;
+  r = x * x;
+  assert r > 0;
+}

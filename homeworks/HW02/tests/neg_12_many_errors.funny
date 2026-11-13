@@ -1,0 +1,12 @@
+function f(x) returns r {
+  r = ;
+  if (x > ) { r = 1; } else { r = 2; }
+  while (x) { x = x - ; }
+  assert ;
+  r = (x + 1;
+  a[1 = 2;
+}
+function g(,) returns r {
+  r = ;
+}
+function h() returns r { r = 1; }

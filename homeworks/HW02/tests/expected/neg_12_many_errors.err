@@ -1,0 +1,8 @@
+error: expected expression but got ';' at 2:7
+error: expected expression but got ')' at 3:11
+error: expected expression but got ';' at 4:23
+error: expected expression but got ';' at 5:10
+error: expected ')' but got ';' at 6:13
+error: expected ']' but got '=' at 7:7
+error: expected identifier or ')' but got ',' at 9:12
+error: expected expression but got ';' at 10:7

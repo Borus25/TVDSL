@@ -1,0 +1,69 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "f",
+      "params": [
+        "a"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "1:27"
+            },
+            "value": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "1:31"
+              },
+              "index": {
+                "node": "Int",
+                "value": 0,
+                "pos": "1:33"
+              },
+              "pos": "1:31"
+            },
+            "pos": "1:27"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "ArrayIndex",
+              "base": {
+                "node": "Ident",
+                "name": "a",
+                "pos": "1:37"
+              },
+              "index": {
+                "node": "Int",
+                "value": 1,
+                "pos": "1:39"
+              },
+              "pos": "1:37"
+            },
+            "value": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "1:44"
+            },
+            "pos": "1:37"
+          }
+        ],
+        "pos": "1:25"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

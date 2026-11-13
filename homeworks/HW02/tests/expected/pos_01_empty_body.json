@@ -1,0 +1,20 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [],
+        "pos": "1:24"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

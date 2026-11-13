@@ -1,0 +1,8 @@
+function prec(a, b, c, d) returns r {
+  r = -a + b * c - d / 2;          // (- (+ (- a) (* b c)) (/ d 2))
+  r = a - b - c;                    // левая ассоциативность: (a - b) - c
+  r = (a + b) * -c;
+  r = - - a;
+  assert not a == b or c < d and true;   // (or (not (== a b)) (and (< c d) true))
+  assert not not false;
+}

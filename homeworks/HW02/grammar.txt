@@ -1,0 +1,122 @@
+ГРАММАТИКА FUNNY ДЛЯ HW2 (ветка LL(1), рекурсивный спуск)
+========================================================
+
+ЭТАП 3. Грамматика -> LL(1)-форма.
+Что происходит: берём грамматику со слайда (часть 1) и переписываем её так,
+чтобы парсер мог по ОДНОМУ следующему токену однозначно выбрать правило (часть 2).
+Для этого нужны три вещи (слайд «LL(1): что нужно»):
+
+  1) Нет левой рекурсии. Правило вида  add_expr ::= add_expr '+' mul_expr
+     в рекурсивном спуске вызывает само себя, не съев ни одного токена, —
+     бесконечный цикл. Заменяем «хвостом»:
+         add_expr ::= mul_expr add_tail
+         add_tail ::= add_op mul_expr add_tail | ε
+     В EBNF это записано как  mul_expr (("+" | "-") mul_expr)*, в коде — цикл while.
+
+  2) Нет общих префиксов (факторизация). Правила
+         assign ::= IDENT "=" expr | IDENT "[" expr "]" "=" expr
+     начинаются одинаково, по токену IDENT между ними не выбрать. Выносим IDENT:
+         stmt        ::= IDENT assign_tail semi
+         assign_tail ::= '=' expr | '[' expr ']' '=' expr
+     То же для primary: x, a[i], f(x) -> IDENT ident_tail.
+
+  3) Для каждого A ::= α | β множества FIRST(α) и FIRST(β) не пересекаются,
+     а если одна из альтернатив может быть пустой (ε) — FIRST другой не пересекается
+     с FOLLOW(A). Это проверяет ЭТАП 4 (ll1.py) по части 2 этого файла:
+     python3 main.py --grammar  ->  «Конфликтов LL(1) нет».
+
+Необязательные части (requires?, ensures?, else, invariant, ';') стали ε-правилами:
+     requires ::= 'requires' expr | ε
+Приоритеты операторов заданы уровнями (or -> and -> not -> сравнения -> + - -> * / -> унарный -):
+чем ниже уровень, тем сильнее связывает оператор (подробно — ЭТАП 8 в parser.py).
+
+Часть 1 — EBNF. Это грамматика со слайда «Язык Funny: минимальный набор
+конструкций». Всё, что отличается от слайда, помечено [Δn]; причины — в
+REPORT.md, раздел «Отклонения от грамматики».
+
+program  := function+                                              [Δ1]
+function := "function" IDENT "(" params ")" "returns" IDENT
+            requires? ensures? block
+params   := (IDENT ("," IDENT)*)?
+requires := "requires" expr
+ensures  := "ensures" expr
+block    := "{" stmt* "}"
+stmt     := assign ";"? | if | while | assert ";"? | assume ";"? | block   [Δ2]
+assign   := IDENT "=" expr
+          | IDENT "[" expr "]" "=" expr
+if       := "if" "(" expr ")" block ("else" block)?
+while    := "while" "(" expr ")" ("invariant" expr)? block               [Δ3]
+assert   := "assert" expr
+assume   := "assume" expr
+
+expr     := or_expr
+or_expr  := and_expr ("or" and_expr)*
+and_expr := not_expr ("and" not_expr)*
+not_expr := "not" not_expr | cmp_expr
+cmp_expr := add_expr (("==" | "!=" | "<" | "<=" | ">" | ">=") add_expr)?
+add_expr := mul_expr (("+" | "-") mul_expr)*
+mul_expr := unary (("*" | "/") unary)*
+unary    := "-" unary | primary
+primary  := INT | "true" | "false" | IDENT
+          | IDENT "[" expr "]"
+          | IDENT "(" (expr ("," expr)*)? ")"                          [Δ4]
+          | "length" "(" expr ")"                                      [Δ4]
+          | "(" expr ")"
+
+Приоритеты (от слабого к сильному) и ассоциативность — заданы уровнями грамматики:
+  or (лев.) < and (лев.) < not (прав., префикс) < сравнения (неассоц.)
+  < + - (лев.) < * / (лев.) < унарный - (прав.)
+
+Отклонения кратко:
+  [Δ1] пустая программа — синтаксическая ошибка (в тестах слайда пустой ввод негативный);
+  [Δ2] ';' после простых операторов разрешена, но не обязательна (тесты слайда пишут её,
+       грамматика слайда — нет; LL(1) от этого не страдает: ';' нет в FOLLOW(stmt));
+  [Δ3] у while необязательный invariant (токен INVARIANT есть в лексере HW1);
+  [Δ4] вызовы функций (в AST слайда есть узел Call) и length(a) (токен LENGTH из HW1).
+
+
+Часть 2 — LL(1)-форма. Её читает ll1.py: строит FIRST, FOLLOW, таблицу M[A, a]
+и проверяет, что конфликтов нет (python3 main.py --grammar).
+Левая рекурсия заменена хвостами *_tail, общий префикс IDENT вынесен
+(stmt -> IDENT assign_tail, primary -> IDENT ident_tail).
+Нотация: 'x' — терминал (ключевое слово или знак), IDENT INT EOF — классы токенов,
+ε — пустая цепочка, остальные имена — нетерминалы.
+
+### LL1 BEGIN
+program      ::= function functions EOF
+functions    ::= function functions | ε
+function     ::= 'function' IDENT '(' params ')' 'returns' IDENT requires ensures block
+params       ::= IDENT params_tail | ε
+params_tail  ::= ',' IDENT params_tail | ε
+requires     ::= 'requires' expr | ε
+ensures      ::= 'ensures' expr | ε
+block        ::= '{' stmts '}'
+stmts        ::= stmt stmts | ε
+stmt         ::= IDENT assign_tail semi | if_stmt | while_stmt | 'assert' expr semi | 'assume' expr semi | block
+assign_tail  ::= '=' expr | '[' expr ']' '=' expr
+semi         ::= ';' | ε
+if_stmt      ::= 'if' '(' expr ')' block else_part
+else_part    ::= 'else' block | ε
+while_stmt   ::= 'while' '(' expr ')' invariant block
+invariant    ::= 'invariant' expr | ε
+expr         ::= or_expr
+or_expr      ::= and_expr or_tail
+or_tail      ::= 'or' and_expr or_tail | ε
+and_expr     ::= not_expr and_tail
+and_tail     ::= 'and' not_expr and_tail | ε
+not_expr     ::= 'not' not_expr | cmp_expr
+cmp_expr     ::= add_expr cmp_tail
+cmp_tail     ::= cmp_op add_expr | ε
+cmp_op       ::= '==' | '!=' | '<' | '<=' | '>' | '>='
+add_expr     ::= mul_expr add_tail
+add_tail     ::= add_op mul_expr add_tail | ε
+add_op       ::= '+' | '-'
+mul_expr     ::= unary mul_tail
+mul_tail     ::= mul_op unary mul_tail | ε
+mul_op       ::= '*' | '/'
+unary        ::= '-' unary | primary
+primary      ::= INT | 'true' | 'false' | IDENT ident_tail | 'length' '(' expr ')' | '(' expr ')'
+ident_tail   ::= '[' expr ']' | '(' args ')' | ε
+args         ::= expr args_tail | ε
+args_tail    ::= ',' expr args_tail | ε
+### LL1 END

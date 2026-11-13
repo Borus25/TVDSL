@@ -1,0 +1,185 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "name": "abs",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": {
+        "node": "BinaryOp",
+        "op": "and",
+        "left": {
+          "node": "BinaryOp",
+          "op": ">=",
+          "left": {
+            "node": "Ident",
+            "name": "x",
+            "pos": "2:12"
+          },
+          "right": {
+            "node": "UnaryOp",
+            "op": "-",
+            "operand": {
+              "node": "Int",
+              "value": 100,
+              "pos": "2:18"
+            },
+            "pos": "2:17"
+          },
+          "pos": "2:12"
+        },
+        "right": {
+          "node": "BinaryOp",
+          "op": "<=",
+          "left": {
+            "node": "Ident",
+            "name": "x",
+            "pos": "2:26"
+          },
+          "right": {
+            "node": "Int",
+            "value": 100,
+            "pos": "2:31"
+          },
+          "pos": "2:26"
+        },
+        "pos": "2:12"
+      },
+      "ensures": {
+        "node": "BinaryOp",
+        "op": "and",
+        "left": {
+          "node": "BinaryOp",
+          "op": ">=",
+          "left": {
+            "node": "Ident",
+            "name": "r",
+            "pos": "3:11"
+          },
+          "right": {
+            "node": "Int",
+            "value": 0,
+            "pos": "3:16"
+          },
+          "pos": "3:11"
+        },
+        "right": {
+          "node": "BinaryOp",
+          "op": "or",
+          "left": {
+            "node": "BinaryOp",
+            "op": "==",
+            "left": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "3:23"
+            },
+            "right": {
+              "node": "Ident",
+              "name": "x",
+              "pos": "3:28"
+            },
+            "pos": "3:23"
+          },
+          "right": {
+            "node": "BinaryOp",
+            "op": "==",
+            "left": {
+              "node": "Ident",
+              "name": "r",
+              "pos": "3:33"
+            },
+            "right": {
+              "node": "UnaryOp",
+              "op": "-",
+              "operand": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "3:39"
+              },
+              "pos": "3:38"
+            },
+            "pos": "3:33"
+          },
+          "pos": "3:23"
+        },
+        "pos": "3:11"
+      },
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "If",
+            "cond": {
+              "node": "BinaryOp",
+              "op": "<",
+              "left": {
+                "node": "Ident",
+                "name": "x",
+                "pos": "5:7"
+              },
+              "right": {
+                "node": "Int",
+                "value": 0,
+                "pos": "5:11"
+              },
+              "pos": "5:7"
+            },
+            "then": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "r",
+                    "pos": "5:16"
+                  },
+                  "value": {
+                    "node": "UnaryOp",
+                    "op": "-",
+                    "operand": {
+                      "node": "Ident",
+                      "name": "x",
+                      "pos": "5:21"
+                    },
+                    "pos": "5:20"
+                  },
+                  "pos": "5:16"
+                }
+              ],
+              "pos": "5:14"
+            },
+            "else": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "r",
+                    "pos": "5:33"
+                  },
+                  "value": {
+                    "node": "Ident",
+                    "name": "x",
+                    "pos": "5:37"
+                  },
+                  "pos": "5:33"
+                }
+              ],
+              "pos": "5:31"
+            },
+            "pos": "5:3"
+          }
+        ],
+        "pos": "4:1"
+      },
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}
