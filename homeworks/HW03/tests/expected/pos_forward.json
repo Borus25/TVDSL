@@ -1,0 +1,93 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func()->int",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:30"
+            },
+            "value": {
+              "node": "Call",
+              "type": "int",
+              "name": "g",
+              "args": [],
+              "pos": "1:32"
+            },
+            "pos": "1:30"
+          }
+        ],
+        "pos": "1:29"
+      },
+      "param_types": [],
+      "return_type": "int",
+      "param_positions": [],
+      "return_pos": [
+        1,
+        22
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    },
+    {
+      "node": "Function",
+      "type": "func()->int",
+      "name": "g",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:67"
+            },
+            "value": {
+              "node": "Int",
+              "type": "int",
+              "value": 1,
+              "pos": "1:69"
+            },
+            "pos": "1:67"
+          }
+        ],
+        "pos": "1:66"
+      },
+      "param_types": [],
+      "return_type": "int",
+      "param_positions": [],
+      "return_pos": [
+        1,
+        59
+      ],
+      "name_pos": [
+        1,
+        47
+      ],
+      "pos": "1:38"
+    }
+  ],
+  "pos": "1:1"
+}

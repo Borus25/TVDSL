@@ -1,0 +1,1 @@
+function f(a: int,b: int) returns r: bool {var i=-a+b*2/1-0; r=(a<=b) and (a>=b) or (a!=b);}

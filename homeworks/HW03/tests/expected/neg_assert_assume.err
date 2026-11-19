@@ -1,0 +1,2 @@
+error: assert condition must be bool, got int at 1:36 [E_CONDITION]
+error: assume condition must be bool, got int at 1:46 [E_CONDITION]

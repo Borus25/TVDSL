@@ -1,0 +1,1 @@
+error: function 'store' expects 3 args, got 2 at 1:50 [E_ARG_COUNT]

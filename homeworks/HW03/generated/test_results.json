@@ -1,0 +1,812 @@
+{
+  "fixture_total": 90,
+  "fixture_passed": 90,
+  "unit_total": 30,
+  "unit_failed": 0,
+  "fixtures": [
+    {
+      "name": "pos_types_ok",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_bool",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_call",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_array",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_nested",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_shadowing",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_while",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_requires_ensures",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_mutual_recursion",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_var_infer",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_deferred_infer",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_array_infer",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_both_branches_init",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_both_branches_return",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_array_nested",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_call_index",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_array_return",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_store",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_comparison_bool",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_comparison_array",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_operators",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_assert_assume",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_no_semicolons",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_forward",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_typed_without_initializer",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_comments_crlf",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "neg_undeclared",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_redecl",
+      "expected_codes": [
+        "E_REDECLARED"
+      ],
+      "actual_codes": [
+        "E_REDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_type_mismatch",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_cond_type",
+      "expected_codes": [
+        "E_CONDITION"
+      ],
+      "actual_codes": [
+        "E_CONDITION"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_while_cond",
+      "expected_codes": [
+        "E_CONDITION"
+      ],
+      "actual_codes": [
+        "E_CONDITION"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_wrong_argc",
+      "expected_codes": [
+        "E_ARG_COUNT"
+      ],
+      "actual_codes": [
+        "E_ARG_COUNT"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_wrong_arg_type",
+      "expected_codes": [
+        "E_ARG_TYPE"
+      ],
+      "actual_codes": [
+        "E_ARG_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_unknown_func",
+      "expected_codes": [
+        "E_UNKNOWN_FUNCTION"
+      ],
+      "actual_codes": [
+        "E_UNKNOWN_FUNCTION"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_array_index",
+      "expected_codes": [
+        "E_INDEX_TYPE"
+      ],
+      "actual_codes": [
+        "E_INDEX_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_not_array",
+      "expected_codes": [
+        "E_NOT_ARRAY"
+      ],
+      "actual_codes": [
+        "E_NOT_ARRAY"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_multiple_errors",
+      "expected_codes": [
+        "E_UNDECLARED",
+        "E_ASSIGN_TYPE",
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED",
+        "E_ASSIGN_TYPE",
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_no_cascade",
+      "expected_codes": [
+        "E_UNDECLARED",
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED",
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_use_before_decl",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_out_of_scope",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_duplicate_param",
+      "expected_codes": [
+        "E_REDECLARED"
+      ],
+      "actual_codes": [
+        "E_REDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_param_redecl",
+      "expected_codes": [
+        "E_REDECLARED"
+      ],
+      "actual_codes": [
+        "E_REDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_duplicate_function",
+      "expected_codes": [
+        "E_REDECLARED"
+      ],
+      "actual_codes": [
+        "E_REDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_missing_annotations",
+      "expected_codes": [
+        "E_MISSING_TYPE",
+        "E_MISSING_TYPE"
+      ],
+      "actual_codes": [
+        "E_MISSING_TYPE",
+        "E_MISSING_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_inference_conflict",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_cannot_infer",
+      "expected_codes": [
+        "E_CANNOT_INFER"
+      ],
+      "actual_codes": [
+        "E_CANNOT_INFER"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_failed_infer",
+      "expected_codes": [
+        "E_CANNOT_INFER",
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_CANNOT_INFER",
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_uninitialized",
+      "expected_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_conditional_init",
+      "expected_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_loop_init",
+      "expected_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_return_missing",
+      "expected_codes": [
+        "E_RETURN_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_RETURN_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_return_one_branch",
+      "expected_codes": [
+        "E_RETURN_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_RETURN_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_requires",
+      "expected_codes": [
+        "E_CONTRACT"
+      ],
+      "actual_codes": [
+        "E_CONTRACT"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_ensures",
+      "expected_codes": [
+        "E_CONTRACT"
+      ],
+      "actual_codes": [
+        "E_CONTRACT"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_invariant",
+      "expected_codes": [
+        "E_CONTRACT"
+      ],
+      "actual_codes": [
+        "E_CONTRACT"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_assert_assume",
+      "expected_codes": [
+        "E_CONDITION",
+        "E_CONDITION"
+      ],
+      "actual_codes": [
+        "E_CONDITION",
+        "E_CONDITION"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_bad_arithmetic",
+      "expected_codes": [
+        "E_OPERATOR"
+      ],
+      "actual_codes": [
+        "E_OPERATOR"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_bad_logic",
+      "expected_codes": [
+        "E_OPERATOR"
+      ],
+      "actual_codes": [
+        "E_OPERATOR"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_bad_unary",
+      "expected_codes": [
+        "E_OPERATOR"
+      ],
+      "actual_codes": [
+        "E_OPERATOR"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_mixed_equality",
+      "expected_codes": [
+        "E_OPERATOR"
+      ],
+      "actual_codes": [
+        "E_OPERATOR"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_array_element",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_array_assignment",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_length",
+      "expected_codes": [
+        "E_ARG_TYPE"
+      ],
+      "actual_codes": [
+        "E_ARG_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_not_callable",
+      "expected_codes": [
+        "E_NOT_CALLABLE"
+      ],
+      "actual_codes": [
+        "E_NOT_CALLABLE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_assign_function",
+      "expected_codes": [
+        "E_ASSIGN_FUNCTION"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_FUNCTION"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_shadow_function",
+      "expected_codes": [
+        "E_NOT_CALLABLE"
+      ],
+      "actual_codes": [
+        "E_NOT_CALLABLE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_nested_array_type",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_store_element",
+      "expected_codes": [
+        "E_ARG_TYPE"
+      ],
+      "actual_codes": [
+        "E_ARG_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_store_arity",
+      "expected_codes": [
+        "E_ARG_COUNT"
+      ],
+      "actual_codes": [
+        "E_ARG_COUNT"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_return_used_early",
+      "expected_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_independent_operand",
+      "expected_codes": [
+        "E_UNDECLARED",
+        "E_OPERATOR"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED",
+        "E_OPERATOR"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_builtin_redefinition",
+      "expected_codes": [
+        "E_BUILTIN"
+      ],
+      "actual_codes": [
+        "E_BUILTIN"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_infer_branch_conflict",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_branch_decl_scope",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_syntax",
+      "expected_codes": [
+        "E_PARSE"
+      ],
+      "actual_codes": [
+        "E_PARSE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_unsupported_string",
+      "expected_codes": [
+        "E_PARSE"
+      ],
+      "actual_codes": [
+        "E_PARSE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_unknown_assignment",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_extra_arg_unknown",
+      "expected_codes": [
+        "E_ARG_COUNT",
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_ARG_COUNT",
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "pos_function_alias",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_inference_after_error",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "pos_infer_two_branches",
+      "expected_codes": [],
+      "actual_codes": [],
+      "passed": true
+    },
+    {
+      "name": "neg_local_leak_function",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_array_param_type",
+      "expected_codes": [
+        "E_ARG_TYPE"
+      ],
+      "actual_codes": [
+        "E_ARG_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_compare_functions",
+      "expected_codes": [
+        "E_OPERATOR"
+      ],
+      "actual_codes": [
+        "E_OPERATOR"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_param_result_collision",
+      "expected_codes": [
+        "E_REDECLARED"
+      ],
+      "actual_codes": [
+        "E_REDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_if_else_type_conflict",
+      "expected_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "actual_codes": [
+        "E_ASSIGN_TYPE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_self_initializer",
+      "expected_codes": [
+        "E_CANNOT_INFER",
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_CANNOT_INFER",
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_requires_uninitialized_result",
+      "expected_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "actual_codes": [
+        "E_UNINITIALIZED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_ensures_body_local",
+      "expected_codes": [
+        "E_UNDECLARED"
+      ],
+      "actual_codes": [
+        "E_UNDECLARED"
+      ],
+      "passed": true
+    },
+    {
+      "name": "neg_syntax_recover_many",
+      "expected_codes": [
+        "E_PARSE",
+        "E_PARSE"
+      ],
+      "actual_codes": [
+        "E_PARSE",
+        "E_PARSE"
+      ],
+      "passed": true
+    }
+  ]
+}

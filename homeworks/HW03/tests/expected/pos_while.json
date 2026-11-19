@@ -1,0 +1,145 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(int)->int",
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "VarDecl",
+            "type": "int",
+            "name": "i",
+            "annotation": null,
+            "value": {
+              "node": "Int",
+              "type": "int",
+              "value": 0,
+              "pos": "1:43"
+            },
+            "pos": "1:41"
+          },
+          {
+            "node": "While",
+            "cond": {
+              "node": "BinaryOp",
+              "type": "bool",
+              "op": "<",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "i",
+                "pos": "1:52"
+              },
+              "right": {
+                "node": "Ident",
+                "type": "int",
+                "name": "x",
+                "pos": "1:54"
+              },
+              "pos": "1:52"
+            },
+            "body": {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "type": "int",
+                    "name": "i",
+                    "pos": "1:74"
+                  },
+                  "value": {
+                    "node": "BinaryOp",
+                    "type": "int",
+                    "op": "+",
+                    "left": {
+                      "node": "Ident",
+                      "type": "int",
+                      "name": "i",
+                      "pos": "1:76"
+                    },
+                    "right": {
+                      "node": "Int",
+                      "type": "int",
+                      "value": 1,
+                      "pos": "1:78"
+                    },
+                    "pos": "1:76"
+                  },
+                  "pos": "1:74"
+                }
+              ],
+              "pos": "1:72"
+            },
+            "invariant": {
+              "node": "BinaryOp",
+              "type": "bool",
+              "op": ">=",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "i",
+                "pos": "1:67"
+              },
+              "right": {
+                "node": "Int",
+                "type": "int",
+                "value": 0,
+                "pos": "1:70"
+              },
+              "pos": "1:67"
+            },
+            "pos": "1:46"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:83"
+            },
+            "value": {
+              "node": "Ident",
+              "type": "int",
+              "name": "i",
+              "pos": "1:85"
+            },
+            "pos": "1:83"
+          }
+        ],
+        "pos": "1:35"
+      },
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        28
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

@@ -1,0 +1,24 @@
+function add(a: int, b: int) returns r: int
+  ensures r == a + b
+{
+  r = a + b;
+}
+
+function main(data: array<int>, enabled: bool) returns result: int
+  requires length(data) > 0
+  ensures result >= 0
+{
+  var limit: int = length(data);
+  var i = 0;
+  var sum;
+  sum = 0;
+  while (i < limit) invariant i >= 0 {
+    sum = add(sum, data[i]);
+    i = i + 1;
+  }
+  if (enabled) {
+    result = sum;
+  } else {
+    result = 0;
+  }
+}

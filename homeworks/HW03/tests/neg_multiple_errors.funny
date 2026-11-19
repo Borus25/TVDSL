@@ -1,0 +1,5 @@
+function f() returns r: int {
+  r = y;
+  var x: bool = 1;
+  if (x) { r = true; }
+}

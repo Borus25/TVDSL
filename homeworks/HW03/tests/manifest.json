@@ -1,0 +1,494 @@
+[
+  {
+    "name": "pos_types_ok",
+    "expected": []
+  },
+  {
+    "name": "pos_bool",
+    "expected": []
+  },
+  {
+    "name": "pos_call",
+    "expected": []
+  },
+  {
+    "name": "pos_array",
+    "expected": []
+  },
+  {
+    "name": "pos_nested",
+    "expected": []
+  },
+  {
+    "name": "pos_shadowing",
+    "expected": []
+  },
+  {
+    "name": "pos_while",
+    "expected": []
+  },
+  {
+    "name": "pos_requires_ensures",
+    "expected": []
+  },
+  {
+    "name": "pos_mutual_recursion",
+    "expected": []
+  },
+  {
+    "name": "pos_var_infer",
+    "expected": []
+  },
+  {
+    "name": "pos_deferred_infer",
+    "expected": []
+  },
+  {
+    "name": "pos_array_infer",
+    "expected": []
+  },
+  {
+    "name": "pos_both_branches_init",
+    "expected": []
+  },
+  {
+    "name": "pos_both_branches_return",
+    "expected": []
+  },
+  {
+    "name": "pos_array_nested",
+    "expected": []
+  },
+  {
+    "name": "pos_call_index",
+    "expected": []
+  },
+  {
+    "name": "pos_array_return",
+    "expected": []
+  },
+  {
+    "name": "pos_store",
+    "expected": []
+  },
+  {
+    "name": "pos_comparison_bool",
+    "expected": []
+  },
+  {
+    "name": "pos_comparison_array",
+    "expected": []
+  },
+  {
+    "name": "pos_operators",
+    "expected": []
+  },
+  {
+    "name": "pos_assert_assume",
+    "expected": []
+  },
+  {
+    "name": "pos_no_semicolons",
+    "expected": []
+  },
+  {
+    "name": "pos_forward",
+    "expected": []
+  },
+  {
+    "name": "pos_typed_without_initializer",
+    "expected": []
+  },
+  {
+    "name": "pos_comments_crlf",
+    "expected": []
+  },
+  {
+    "name": "neg_undeclared",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_redecl",
+    "expected": [
+      "E_REDECLARED"
+    ]
+  },
+  {
+    "name": "neg_type_mismatch",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_cond_type",
+    "expected": [
+      "E_CONDITION"
+    ]
+  },
+  {
+    "name": "neg_while_cond",
+    "expected": [
+      "E_CONDITION"
+    ]
+  },
+  {
+    "name": "neg_wrong_argc",
+    "expected": [
+      "E_ARG_COUNT"
+    ]
+  },
+  {
+    "name": "neg_wrong_arg_type",
+    "expected": [
+      "E_ARG_TYPE"
+    ]
+  },
+  {
+    "name": "neg_unknown_func",
+    "expected": [
+      "E_UNKNOWN_FUNCTION"
+    ]
+  },
+  {
+    "name": "neg_array_index",
+    "expected": [
+      "E_INDEX_TYPE"
+    ]
+  },
+  {
+    "name": "neg_not_array",
+    "expected": [
+      "E_NOT_ARRAY"
+    ]
+  },
+  {
+    "name": "neg_multiple_errors",
+    "expected": [
+      "E_UNDECLARED",
+      "E_ASSIGN_TYPE",
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_no_cascade",
+    "expected": [
+      "E_UNDECLARED",
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_use_before_decl",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_out_of_scope",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_duplicate_param",
+    "expected": [
+      "E_REDECLARED"
+    ]
+  },
+  {
+    "name": "neg_param_redecl",
+    "expected": [
+      "E_REDECLARED"
+    ]
+  },
+  {
+    "name": "neg_duplicate_function",
+    "expected": [
+      "E_REDECLARED"
+    ]
+  },
+  {
+    "name": "neg_missing_annotations",
+    "expected": [
+      "E_MISSING_TYPE",
+      "E_MISSING_TYPE"
+    ]
+  },
+  {
+    "name": "neg_inference_conflict",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_cannot_infer",
+    "expected": [
+      "E_CANNOT_INFER"
+    ]
+  },
+  {
+    "name": "neg_failed_infer",
+    "expected": [
+      "E_CANNOT_INFER",
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_uninitialized",
+    "expected": [
+      "E_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_conditional_init",
+    "expected": [
+      "E_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_loop_init",
+    "expected": [
+      "E_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_return_missing",
+    "expected": [
+      "E_RETURN_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_return_one_branch",
+    "expected": [
+      "E_RETURN_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_requires",
+    "expected": [
+      "E_CONTRACT"
+    ]
+  },
+  {
+    "name": "neg_ensures",
+    "expected": [
+      "E_CONTRACT"
+    ]
+  },
+  {
+    "name": "neg_invariant",
+    "expected": [
+      "E_CONTRACT"
+    ]
+  },
+  {
+    "name": "neg_assert_assume",
+    "expected": [
+      "E_CONDITION",
+      "E_CONDITION"
+    ]
+  },
+  {
+    "name": "neg_bad_arithmetic",
+    "expected": [
+      "E_OPERATOR"
+    ]
+  },
+  {
+    "name": "neg_bad_logic",
+    "expected": [
+      "E_OPERATOR"
+    ]
+  },
+  {
+    "name": "neg_bad_unary",
+    "expected": [
+      "E_OPERATOR"
+    ]
+  },
+  {
+    "name": "neg_mixed_equality",
+    "expected": [
+      "E_OPERATOR"
+    ]
+  },
+  {
+    "name": "neg_array_element",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_array_assignment",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_length",
+    "expected": [
+      "E_ARG_TYPE"
+    ]
+  },
+  {
+    "name": "neg_not_callable",
+    "expected": [
+      "E_NOT_CALLABLE"
+    ]
+  },
+  {
+    "name": "neg_assign_function",
+    "expected": [
+      "E_ASSIGN_FUNCTION"
+    ]
+  },
+  {
+    "name": "neg_shadow_function",
+    "expected": [
+      "E_NOT_CALLABLE"
+    ]
+  },
+  {
+    "name": "neg_nested_array_type",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_store_element",
+    "expected": [
+      "E_ARG_TYPE"
+    ]
+  },
+  {
+    "name": "neg_store_arity",
+    "expected": [
+      "E_ARG_COUNT"
+    ]
+  },
+  {
+    "name": "neg_return_used_early",
+    "expected": [
+      "E_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_independent_operand",
+    "expected": [
+      "E_UNDECLARED",
+      "E_OPERATOR"
+    ]
+  },
+  {
+    "name": "neg_builtin_redefinition",
+    "expected": [
+      "E_BUILTIN"
+    ]
+  },
+  {
+    "name": "neg_infer_branch_conflict",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_branch_decl_scope",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_syntax",
+    "expected": [
+      "E_PARSE"
+    ]
+  },
+  {
+    "name": "neg_unsupported_string",
+    "expected": [
+      "E_PARSE"
+    ]
+  },
+  {
+    "name": "neg_unknown_assignment",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_extra_arg_unknown",
+    "expected": [
+      "E_ARG_COUNT",
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "pos_function_alias",
+    "expected": []
+  },
+  {
+    "name": "pos_inference_after_error",
+    "expected": []
+  },
+  {
+    "name": "pos_infer_two_branches",
+    "expected": []
+  },
+  {
+    "name": "neg_local_leak_function",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_array_param_type",
+    "expected": [
+      "E_ARG_TYPE"
+    ]
+  },
+  {
+    "name": "neg_compare_functions",
+    "expected": [
+      "E_OPERATOR"
+    ]
+  },
+  {
+    "name": "neg_param_result_collision",
+    "expected": [
+      "E_REDECLARED"
+    ]
+  },
+  {
+    "name": "neg_if_else_type_conflict",
+    "expected": [
+      "E_ASSIGN_TYPE"
+    ]
+  },
+  {
+    "name": "neg_self_initializer",
+    "expected": [
+      "E_CANNOT_INFER",
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_requires_uninitialized_result",
+    "expected": [
+      "E_UNINITIALIZED"
+    ]
+  },
+  {
+    "name": "neg_ensures_body_local",
+    "expected": [
+      "E_UNDECLARED"
+    ]
+  },
+  {
+    "name": "neg_syntax_recover_many",
+    "expected": [
+      "E_PARSE",
+      "E_PARSE"
+    ]
+  }
+]

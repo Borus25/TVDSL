@@ -1,0 +1,112 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func()->bool",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "VarDecl",
+            "type": "int",
+            "name": "x",
+            "annotation": null,
+            "value": {
+              "node": "Int",
+              "type": "int",
+              "value": 1,
+              "pos": "1:38"
+            },
+            "pos": "1:36"
+          },
+          {
+            "node": "VarDecl",
+            "type": "int",
+            "name": "y",
+            "annotation": null,
+            "value": {
+              "node": "BinaryOp",
+              "type": "int",
+              "op": "+",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "x",
+                "pos": "1:47"
+              },
+              "right": {
+                "node": "Int",
+                "type": "int",
+                "value": 2,
+                "pos": "1:49"
+              },
+              "pos": "1:47"
+            },
+            "pos": "1:45"
+          },
+          {
+            "node": "VarDecl",
+            "type": "bool",
+            "name": "b",
+            "annotation": null,
+            "value": {
+              "node": "BinaryOp",
+              "type": "bool",
+              "op": ">",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "y",
+                "pos": "1:58"
+              },
+              "right": {
+                "node": "Int",
+                "type": "int",
+                "value": 0,
+                "pos": "1:60"
+              },
+              "pos": "1:58"
+            },
+            "pos": "1:56"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "r",
+              "pos": "1:63"
+            },
+            "value": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "b",
+              "pos": "1:65"
+            },
+            "pos": "1:63"
+          }
+        ],
+        "pos": "1:30"
+      },
+      "param_types": [],
+      "return_type": "bool",
+      "param_positions": [],
+      "return_pos": [
+        1,
+        22
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

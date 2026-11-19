@@ -1,0 +1,95 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(int)->int",
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "VarDecl",
+            "type": "int",
+            "name": "y",
+            "annotation": "int",
+            "value": {
+              "node": "BinaryOp",
+              "type": "int",
+              "op": "+",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "x",
+                "pos": "1:50"
+              },
+              "right": {
+                "node": "Int",
+                "type": "int",
+                "value": 1,
+                "pos": "1:54"
+              },
+              "pos": "1:50"
+            },
+            "pos": "1:41"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:57"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "type": "int",
+              "op": "*",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "y",
+                "pos": "1:61"
+              },
+              "right": {
+                "node": "Int",
+                "type": "int",
+                "value": 2,
+                "pos": "1:65"
+              },
+              "pos": "1:61"
+            },
+            "pos": "1:57"
+          }
+        ],
+        "pos": "1:35"
+      },
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        28
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

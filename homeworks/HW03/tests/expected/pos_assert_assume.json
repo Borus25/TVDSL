@@ -1,0 +1,84 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(bool)->bool",
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assert",
+            "expr": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "x",
+              "pos": "1:45"
+            },
+            "pos": "1:38"
+          },
+          {
+            "node": "Assume",
+            "expr": {
+              "node": "UnaryOp",
+              "type": "bool",
+              "op": "not",
+              "operand": {
+                "node": "Ident",
+                "type": "bool",
+                "name": "x",
+                "pos": "1:59"
+              },
+              "pos": "1:55"
+            },
+            "pos": "1:48"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "r",
+              "pos": "1:62"
+            },
+            "value": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "x",
+              "pos": "1:64"
+            },
+            "pos": "1:62"
+          }
+        ],
+        "pos": "1:37"
+      },
+      "param_types": [
+        "bool"
+      ],
+      "return_type": "bool",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        29
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

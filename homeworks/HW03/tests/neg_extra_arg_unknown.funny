@@ -1,0 +1,1 @@
+function g() returns r:int {r=0;} function f() returns r:int {r=g(y);}

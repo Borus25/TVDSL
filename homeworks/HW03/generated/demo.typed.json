@@ -1,0 +1,421 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "type": "func(int, int)->int",
+        "name": "add",
+        "params": [
+          "a",
+          "b"
+        ],
+        "returns": "r",
+        "requires": null,
+        "ensures": {
+          "node": "BinaryOp",
+          "type": "bool",
+          "op": "==",
+          "left": {
+            "node": "Ident",
+            "type": "int",
+            "name": "r",
+            "pos": "2:11"
+          },
+          "right": {
+            "node": "BinaryOp",
+            "type": "int",
+            "op": "+",
+            "left": {
+              "node": "Ident",
+              "type": "int",
+              "name": "a",
+              "pos": "2:16"
+            },
+            "right": {
+              "node": "Ident",
+              "type": "int",
+              "name": "b",
+              "pos": "2:20"
+            },
+            "pos": "2:16"
+          },
+          "pos": "2:11"
+        },
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "type": "int",
+                "name": "r",
+                "pos": "4:3"
+              },
+              "value": {
+                "node": "BinaryOp",
+                "type": "int",
+                "op": "+",
+                "left": {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "a",
+                  "pos": "4:7"
+                },
+                "right": {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "b",
+                  "pos": "4:11"
+                },
+                "pos": "4:7"
+              },
+              "pos": "4:3"
+            }
+          ],
+          "pos": "3:1"
+        },
+        "param_types": [
+          "int",
+          "int"
+        ],
+        "return_type": "int",
+        "param_positions": [
+          [
+            1,
+            14
+          ],
+          [
+            1,
+            22
+          ]
+        ],
+        "return_pos": [
+          1,
+          38
+        ],
+        "name_pos": [
+          1,
+          10
+        ],
+        "pos": "1:1"
+      },
+      {
+        "node": "Function",
+        "type": "func(array<int>, bool)->int",
+        "name": "main",
+        "params": [
+          "data",
+          "enabled"
+        ],
+        "returns": "result",
+        "requires": {
+          "node": "BinaryOp",
+          "type": "bool",
+          "op": ">",
+          "left": {
+            "node": "Call",
+            "type": "int",
+            "name": "length",
+            "args": [
+              {
+                "node": "Ident",
+                "type": "array<int>",
+                "name": "data",
+                "pos": "8:19"
+              }
+            ],
+            "pos": "8:12"
+          },
+          "right": {
+            "node": "Int",
+            "type": "int",
+            "value": 0,
+            "pos": "8:27"
+          },
+          "pos": "8:12"
+        },
+        "ensures": {
+          "node": "BinaryOp",
+          "type": "bool",
+          "op": ">=",
+          "left": {
+            "node": "Ident",
+            "type": "int",
+            "name": "result",
+            "pos": "9:11"
+          },
+          "right": {
+            "node": "Int",
+            "type": "int",
+            "value": 0,
+            "pos": "9:21"
+          },
+          "pos": "9:11"
+        },
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "VarDecl",
+              "type": "int",
+              "name": "limit",
+              "annotation": "int",
+              "value": {
+                "node": "Call",
+                "type": "int",
+                "name": "length",
+                "args": [
+                  {
+                    "node": "Ident",
+                    "type": "array<int>",
+                    "name": "data",
+                    "pos": "11:27"
+                  }
+                ],
+                "pos": "11:20"
+              },
+              "pos": "11:7"
+            },
+            {
+              "node": "VarDecl",
+              "type": "int",
+              "name": "i",
+              "annotation": null,
+              "value": {
+                "node": "Int",
+                "type": "int",
+                "value": 0,
+                "pos": "12:11"
+              },
+              "pos": "12:7"
+            },
+            {
+              "node": "VarDecl",
+              "type": "int",
+              "name": "sum",
+              "annotation": null,
+              "value": null,
+              "pos": "13:7"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "type": "int",
+                "name": "sum",
+                "pos": "14:3"
+              },
+              "value": {
+                "node": "Int",
+                "type": "int",
+                "value": 0,
+                "pos": "14:9"
+              },
+              "pos": "14:3"
+            },
+            {
+              "node": "While",
+              "cond": {
+                "node": "BinaryOp",
+                "type": "bool",
+                "op": "<",
+                "left": {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "i",
+                  "pos": "15:10"
+                },
+                "right": {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "limit",
+                  "pos": "15:14"
+                },
+                "pos": "15:10"
+              },
+              "body": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "type": "int",
+                      "name": "sum",
+                      "pos": "16:5"
+                    },
+                    "value": {
+                      "node": "Call",
+                      "type": "int",
+                      "name": "add",
+                      "args": [
+                        {
+                          "node": "Ident",
+                          "type": "int",
+                          "name": "sum",
+                          "pos": "16:15"
+                        },
+                        {
+                          "node": "ArrayIndex",
+                          "type": "int",
+                          "base": {
+                            "node": "Ident",
+                            "type": "array<int>",
+                            "name": "data",
+                            "pos": "16:20"
+                          },
+                          "index": {
+                            "node": "Ident",
+                            "type": "int",
+                            "name": "i",
+                            "pos": "16:25"
+                          },
+                          "pos": "16:20"
+                        }
+                      ],
+                      "pos": "16:11"
+                    },
+                    "pos": "16:5"
+                  },
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "type": "int",
+                      "name": "i",
+                      "pos": "17:5"
+                    },
+                    "value": {
+                      "node": "BinaryOp",
+                      "type": "int",
+                      "op": "+",
+                      "left": {
+                        "node": "Ident",
+                        "type": "int",
+                        "name": "i",
+                        "pos": "17:9"
+                      },
+                      "right": {
+                        "node": "Int",
+                        "type": "int",
+                        "value": 1,
+                        "pos": "17:13"
+                      },
+                      "pos": "17:9"
+                    },
+                    "pos": "17:5"
+                  }
+                ],
+                "pos": "15:38"
+              },
+              "invariant": {
+                "node": "BinaryOp",
+                "type": "bool",
+                "op": ">=",
+                "left": {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "i",
+                  "pos": "15:31"
+                },
+                "right": {
+                  "node": "Int",
+                  "type": "int",
+                  "value": 0,
+                  "pos": "15:36"
+                },
+                "pos": "15:31"
+              },
+              "pos": "15:3"
+            },
+            {
+              "node": "If",
+              "cond": {
+                "node": "Ident",
+                "type": "bool",
+                "name": "enabled",
+                "pos": "19:7"
+              },
+              "then": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "type": "int",
+                      "name": "result",
+                      "pos": "20:5"
+                    },
+                    "value": {
+                      "node": "Ident",
+                      "type": "int",
+                      "name": "sum",
+                      "pos": "20:14"
+                    },
+                    "pos": "20:5"
+                  }
+                ],
+                "pos": "19:16"
+              },
+              "else": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "type": "int",
+                      "name": "result",
+                      "pos": "22:5"
+                    },
+                    "value": {
+                      "node": "Int",
+                      "type": "int",
+                      "value": 0,
+                      "pos": "22:14"
+                    },
+                    "pos": "22:5"
+                  }
+                ],
+                "pos": "21:10"
+              },
+              "pos": "19:3"
+            }
+          ],
+          "pos": "10:1"
+        },
+        "param_types": [
+          "array<int>",
+          "bool"
+        ],
+        "return_type": "int",
+        "param_positions": [
+          [
+            7,
+            15
+          ],
+          [
+            7,
+            33
+          ]
+        ],
+        "return_pos": [
+          7,
+          56
+        ],
+        "name_pos": [
+          7,
+          10
+        ],
+        "pos": "7:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

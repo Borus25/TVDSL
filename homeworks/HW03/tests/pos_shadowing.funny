@@ -1,0 +1,1 @@
+function f(x: int) returns r: int { { var x: bool=true; assert x; } r=x; }

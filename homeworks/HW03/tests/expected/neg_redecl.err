@@ -1,0 +1,1 @@
+error: redeclaration of 'x' (first declared at 1:35) at 1:48 [E_REDECLARED]

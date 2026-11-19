@@ -1,0 +1,1 @@
+function f() returns r:bool {r=1==true;}

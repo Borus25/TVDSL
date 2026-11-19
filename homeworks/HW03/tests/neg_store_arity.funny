@@ -1,0 +1,1 @@
+function f(a:array<int>) returns r:array<int> {r=store(a,0);}

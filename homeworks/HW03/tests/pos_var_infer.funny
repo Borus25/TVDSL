@@ -1,0 +1,1 @@
+function f() returns r: bool { var x=1; var y=x+2; var b=y>0; r=b; }

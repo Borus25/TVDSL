@@ -1,0 +1,1 @@
+error: argument 1 of 'length': expected array<T>, got int at 1:38 [E_ARG_TYPE]

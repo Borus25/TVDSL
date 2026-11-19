@@ -1,0 +1,2 @@
+error: explicit type annotation required for parameter 'x' at 1:12 [E_MISSING_TYPE]
+error: explicit type annotation required for return 'r' at 1:23 [E_MISSING_TYPE]

@@ -1,0 +1,1 @@
+error: use of uninitialized 'x' at 1:60 [E_UNINITIALIZED]

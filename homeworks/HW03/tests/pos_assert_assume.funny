@@ -1,0 +1,1 @@
+function f(x: bool) returns r: bool {assert x; assume not x; r=x;}

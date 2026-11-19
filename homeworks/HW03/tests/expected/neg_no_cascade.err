@@ -1,0 +1,2 @@
+error: use of undeclared 'y' at 1:32 [E_UNDECLARED]
+error: use of undeclared 'z' at 1:36 [E_UNDECLARED]

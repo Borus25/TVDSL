@@ -1,0 +1,78 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(array<int>)->array<int>",
+      "name": "f",
+      "params": [
+        "a"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "array<int>",
+              "name": "r",
+              "pos": "1:50"
+            },
+            "value": {
+              "node": "Call",
+              "type": "array<int>",
+              "name": "store",
+              "args": [
+                {
+                  "node": "Ident",
+                  "type": "array<int>",
+                  "name": "a",
+                  "pos": "1:58"
+                },
+                {
+                  "node": "Int",
+                  "type": "int",
+                  "value": 0,
+                  "pos": "1:60"
+                },
+                {
+                  "node": "Int",
+                  "type": "int",
+                  "value": 1,
+                  "pos": "1:62"
+                }
+              ],
+              "pos": "1:52"
+            },
+            "pos": "1:50"
+          }
+        ],
+        "pos": "1:49"
+      },
+      "param_types": [
+        "array<int>"
+      ],
+      "return_type": "array<int>",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        35
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

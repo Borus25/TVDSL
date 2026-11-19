@@ -1,0 +1,82 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(array<bool>)->bool",
+      "name": "f",
+      "params": [
+        "a"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "VarDecl",
+            "type": "array<bool>",
+            "name": "b",
+            "annotation": null,
+            "value": {
+              "node": "Ident",
+              "type": "array<bool>",
+              "name": "a",
+              "pos": "1:52"
+            },
+            "pos": "1:50"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "r",
+              "pos": "1:55"
+            },
+            "value": {
+              "node": "ArrayIndex",
+              "type": "bool",
+              "base": {
+                "node": "Ident",
+                "type": "array<bool>",
+                "name": "b",
+                "pos": "1:57"
+              },
+              "index": {
+                "node": "Int",
+                "type": "int",
+                "value": 0,
+                "pos": "1:59"
+              },
+              "pos": "1:57"
+            },
+            "pos": "1:55"
+          }
+        ],
+        "pos": "1:44"
+      },
+      "param_types": [
+        "array<bool>"
+      ],
+      "return_type": "bool",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        36
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

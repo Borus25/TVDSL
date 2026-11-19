@@ -1,0 +1,1 @@
+error: unknown function 'foo' at 1:31 [E_UNKNOWN_FUNCTION]

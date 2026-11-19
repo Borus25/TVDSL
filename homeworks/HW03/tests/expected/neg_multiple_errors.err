@@ -1,0 +1,3 @@
+error: use of undeclared 'y' at 2:7 [E_UNDECLARED]
+error: cannot assign int to bool at 3:17 [E_ASSIGN_TYPE]
+error: cannot assign bool to int at 4:16 [E_ASSIGN_TYPE]

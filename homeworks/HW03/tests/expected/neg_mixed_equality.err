@@ -1,0 +1,1 @@
+error: operator '==' requires equal operand types, got int and bool at 1:32 [E_OPERATOR]

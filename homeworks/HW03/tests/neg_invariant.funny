@@ -1,0 +1,1 @@
+function f() returns r:int {r=0; while(true) invariant 1 {r=1;}}

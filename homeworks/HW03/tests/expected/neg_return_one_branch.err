@@ -1,0 +1,1 @@
+error: return variable 'r' is not assigned on every path at 1:28 [E_RETURN_UNINITIALIZED]

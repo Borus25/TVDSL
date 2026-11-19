@@ -1,0 +1,1 @@
+error: expected type (int, bool, array<T>) but got 'string' at 1:14

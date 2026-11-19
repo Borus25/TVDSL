@@ -1,0 +1,88 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(bool)->bool",
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "bool",
+              "name": "r",
+              "pos": "1:39"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "type": "bool",
+              "op": "or",
+              "left": {
+                "node": "BinaryOp",
+                "type": "bool",
+                "op": "and",
+                "left": {
+                  "node": "UnaryOp",
+                  "type": "bool",
+                  "op": "not",
+                  "operand": {
+                    "node": "Ident",
+                    "type": "bool",
+                    "name": "x",
+                    "pos": "1:47"
+                  },
+                  "pos": "1:43"
+                },
+                "right": {
+                  "node": "Bool",
+                  "type": "bool",
+                  "value": true,
+                  "pos": "1:53"
+                },
+                "pos": "1:43"
+              },
+              "right": {
+                "node": "Bool",
+                "type": "bool",
+                "value": false,
+                "pos": "1:61"
+              },
+              "pos": "1:43"
+            },
+            "pos": "1:39"
+          }
+        ],
+        "pos": "1:37"
+      },
+      "param_types": [
+        "bool"
+      ],
+      "return_type": "bool",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        29
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

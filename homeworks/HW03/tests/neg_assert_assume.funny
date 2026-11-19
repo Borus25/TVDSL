@@ -1,0 +1,1 @@
+function f() returns r:int {assert 1; assume 0; r=0;}

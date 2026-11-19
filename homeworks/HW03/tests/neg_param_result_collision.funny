@@ -1,0 +1,1 @@
+function f(r:int) returns r:int {r=0;}

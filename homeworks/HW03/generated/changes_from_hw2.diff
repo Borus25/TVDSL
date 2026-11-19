@@ -1,0 +1,412 @@
+--- HW02/funny_ast.py
++++ HW03/funny_ast.py
+@@ -42,7 +42,8 @@
+ # узлов (compare=False), поэтому тесты сравнивают только структуру дерева.
+ @dataclass
+ class Node:
+-    pass
++    # HW3: keyword-only keeps all HW2 positional constructors intact.
++    type: Optional[str] = field(default=None, kw_only=True, compare=False)
+ 
+ 
+ # ЭТАП 10.1. Узлы выражений.
+@@ -148,7 +149,15 @@
+     pos: Pos = field(default=(0, 0), compare=False)
+ 
+ 
+-Stmt = Union[Block, Assign, If, While, Assert, Assume]
++@dataclass
++class VarDecl(Node):
++    name: str
++    annotation: Optional[str] = None
++    value: Optional[Expr] = None
++    pos: Pos = field(default=(0, 0), compare=False)
++
++
++Stmt = Union[Block, Assign, If, While, Assert, Assume, VarDecl]
+ 
+ 
+ # ЭТАП 10.2 (продолжение). Верхний уровень.
+@@ -163,6 +172,11 @@
+     ensures: Optional[Expr]
+     body: Block
+     pos: Pos = field(default=(0, 0), compare=False)
++    param_types: List[Optional[str]] = field(default_factory=list)
++    return_type: Optional[str] = None
++    param_positions: List[Pos] = field(default_factory=list, compare=False)
++    return_pos: Pos = field(default=(0, 0), compare=False)
++    name_pos: Pos = field(default=(0, 0), compare=False)
+ 
+ 
+ @dataclass
+@@ -192,7 +206,7 @@
+         return node
+     out = {"node": type(node).__name__}
+     for f in fields(node):
+-        if f.name == "pos":
++        if f.name == "pos" or (f.name == "type" and node.type is None):
+             continue
+         out[_key(f.name)] = to_dict(getattr(node, f.name), with_pos)
+     if with_pos:
+@@ -205,7 +219,7 @@
+ 
+ 
+ _CLASSES = {c.__name__: c for c in (Int, Bool, Ident, ArrayIndex, Call, UnaryOp, BinaryOp,
+-                                    Block, Assign, If, While, Assert, Assume, Function, Program)}
++                                    Block, Assign, If, While, Assert, Assume, VarDecl, Function, Program)}
+ 
+ 
+ def from_dict(data):
+@@ -223,7 +237,12 @@
+                 line, col = data["pos"].split(":")
+                 kwargs["pos"] = (int(line), int(col))
+         elif key in data:
+-            kwargs[f.name] = from_dict(data[key])
++            value = from_dict(data[key])
++            if f.name in ("return_pos", "name_pos"):
++                value = tuple(value)
++            elif f.name == "param_positions":
++                value = [tuple(p) for p in value]
++            kwargs[f.name] = value
+     return cls(**kwargs)
+ 
+ 
+@@ -263,6 +282,10 @@
+         if not node.stmts:
+             return pad + "(block)"
+         return pad + "(block" + "".join("\n" + to_sexp(s, indent + 1) for s in node.stmts) + ")"
++    if isinstance(node, VarDecl):
++        annotation = f":{node.annotation}" if node.annotation else ""
++        value = f" {_inline(node.value)}" if node.value is not None else ""
++        return pad + f"(var {node.name}{annotation}{value})"
+     if isinstance(node, Assign):
+         return pad + f"(= {_inline(node.target)} {_inline(node.value)})"
+     if isinstance(node, Assert):
+--- HW02/parser.py
++++ HW03/parser.py
+@@ -15,7 +15,7 @@
+ from typing import List, Optional, Tuple
+ 
+ from funny_ast import (ArrayIndex, Assert, Assign, Assume, BinaryOp, Block, Bool, Call,
+-                       Function, Ident, If, Int, Program, UnaryOp, While)
++                       Function, Ident, If, Int, Program, UnaryOp, While, VarDecl)
+ from lexer import EOF, Diagnostic, Lexer, Token, describe
+ 
+ # ПРИОРИТЕТ: какие токены — операторы какого уровня (см. ЭТАП 8).
+@@ -32,13 +32,13 @@
+ #   FIRST(stmt)  = { IDENT, if, while, assert, assume, '{' } — с чего начинается оператор;
+ #   FOLLOW(stmt) = FIRST(stmt) ∪ { '}' } — что может стоять сразу после оператора.
+ #   (Числа посчитаны ll1.py по grammar.txt: python3 main.py --grammar.)
+-STMT_START = {"IDENT", "IF", "WHILE", "ASSERT", "ASSUME", "{"}
++STMT_START = {"VAR", "IDENT", "IF", "WHILE", "ASSERT", "ASSUME", "{"}
+ STMT_FOLLOW = STMT_START | {"}"}
+ # Якоря для оператора: FOLLOW(stmt) ∪ {';', '}'} ∪ {function, EOF}.
+ # IDENT из FOLLOW(stmt) сюда сознательно НЕ входит: идентификаторы стоят и внутри
+ # сломанного выражения (r = x @ y + z;), и если остановиться на 'y', парсер решит,
+ # что началось присваивание y = ..., и выдаст ещё пачку ложных ошибок.
+-STMT_SYNC = {";", "}", "IF", "WHILE", "ASSERT", "ASSUME", "{", "FUNCTION", EOF}
++STMT_SYNC = {"VAR", ";", "}", "IF", "WHILE", "ASSERT", "ASSUME", "{", "FUNCTION", EOF}
+ # Якоря для условия ( ... ) у if/while: закрывающая скобка или начало тела.
+ COND_SYNC = {")", "{", ";", "}", "FUNCTION", EOF}
+ # Якоря для заголовка функции: начало тела или следующая функция.
+@@ -189,14 +189,20 @@
+         start = self.tok
+         try:
+             self.expect("FUNCTION")
+-            name = self.expect("IDENT").lexeme
++            name_tok = self.expect("IDENT")
++            name = name_tok.lexeme
+             self.expect("(")
+             params = self.parse_params()
+             if not params and not self.at(")"):
+                 self.error(f"expected identifier or ')' but got {describe(self.tok)}")
+             self.expect(")")
+             self.expect("RETURNS")
+-            ret = self.expect("IDENT").lexeme
++            ret_tok = self.expect("IDENT")
++            ret = ret_tok.lexeme
++            return_type = None
++            if self.at(":"):
++                self.advance()
++                return_type = self.parse_type()
+             requires = ensures = None
+             if self.at("REQUIRES"):
+                 self.advance()
+@@ -219,19 +225,45 @@
+             if self.at("{"):
+                 self.parse_block()
+             return None
+-        return Function(name, params, ret, requires, ensures, body, pos=self.pos(start))
++        return Function(name, params, ret, requires, ensures, body, pos=self.pos(start),
++                        param_types=self.param_types, return_type=return_type,
++                        param_positions=self.param_positions, return_pos=self.pos(ret_tok),
++                        name_pos=self.pos(name_tok))
+ 
+     # ЭТАП 6.2. Параметры: params ::= IDENT params_tail | ε ; params_tail ::= ',' IDENT params_tail | ε
+     # Пустой список, если сразу ')'. Иначе имя, затем цикл «пока ',' — ещё имя».
+     # После списка обязана быть ')': иначе ошибка «expected ',' or ')'».
++    def parse_type(self) -> str:
++        """HW3: type ::= int | bool | array '<' type '>' (string not supported)."""
++        if self.at("TYPE_INT", "TYPE_BOOL"):
++            return self.advance().lexeme
++        if self.at("TYPE_ARRAY"):
++            self.advance()
++            self.expect("<")
++            elem = self.parse_type()
++            self.expect(">")
++            return f"array<{elem}>"
++        self.error(f"expected type (int, bool, array<T>) but got {describe(self.tok)}")
++
+     def parse_params(self) -> List[str]:
+-        """params ::= IDENT params_tail | ε ;  params_tail ::= ',' IDENT params_tail | ε"""
++        # Missing annotations are accepted syntactically for HW2 compatibility;
++        # the HW3 semantic pass reports each missing annotation at its own name.
+         params = []
++        self.param_types = []
++        self.param_positions = []
+         if self.at("IDENT"):
+-            params.append(self.advance().lexeme)
+-            while self.at(","):
+-                self.advance()
+-                params.append(self.expect("IDENT").lexeme)
++            while True:
++                name = self.expect("IDENT")
++                params.append(name.lexeme)
++                self.param_positions.append(self.pos(name))
++                annotation = None
++                if self.at(":"):
++                    self.advance()
++                    annotation = self.parse_type()
++                self.param_types.append(annotation)
++                if not self.at(","):
++                    break
++                self.advance()
+             if not self.at(")"):
+                 self.error(f"expected ',' or ')' but got {describe(self.tok)}")
+         return params
+@@ -309,6 +341,10 @@
+         """stmt ::= IDENT assign_tail semi | if_stmt | while_stmt
+                   | 'assert' expr semi | 'assume' expr semi | block"""
+         tok = self.tok
++        if tok.kind == "VAR":
++            declaration = self.parse_var_decl()
++            self.end_simple_stmt()
++            return declaration
+         if tok.kind == "IDENT":
+             return self.parse_assign()
+         if tok.kind == "IF":
+@@ -332,11 +368,24 @@
+     # и выбор делается по СЛЕДУЮЩЕМУ токену: '=' или '['.
+     # Пример: a[1] = r  ->  Assign(target=ArrayIndex(a, 1), value=r).
+     # Сахар a[i] = v -> a = store(a, i, v) делается отдельно, в funny_ast.desugar (ЭТАП 10.5).
++    def parse_var_decl(self) -> VarDecl:
++        self.expect("VAR")
++        name = self.expect("IDENT")
++        annotation = None
++        value = None
++        if self.at(":"):
++            self.advance()
++            annotation = self.parse_type()
++        if self.at("="):
++            self.advance()
++            value = self.parse_expr()
++        return VarDecl(name.lexeme, annotation, value, pos=self.pos(name))
++
+     def parse_assign(self) -> Assign:
+         """IDENT assign_tail semi ;  assign_tail ::= '=' expr | '[' expr ']' '=' expr"""
+         name_tok = self.advance()
+         target = Ident(name_tok.lexeme, pos=self.pos(name_tok))
+-        if self.at("["):
++        while self.at("["):
+             self.advance()
+             index = self.parse_expr()
+             self.expect("]")
+@@ -514,17 +563,18 @@
+             return Bool(tok.kind == "TRUE", pos=pos)
+         if tok.kind == "IDENT":
+             self.advance()
+-            if self.at("["):
++            expr = Ident(tok.lexeme, pos=pos)
++            if self.at("("):
++                self.advance()
++                args = self.parse_args()
++                self.expect(")")
++                expr = Call(tok.lexeme, args, pos=pos)
++            while self.at("["):
+                 self.advance()
+                 index = self.parse_expr()
+                 self.expect("]")
+-                return ArrayIndex(Ident(tok.lexeme, pos=pos), index, pos=pos)
+-            if self.at("("):
+-                self.advance()
+-                args = self.parse_args()
+-                self.expect(")")
+-                return Call(tok.lexeme, args, pos=pos)
+-            return Ident(tok.lexeme, pos=pos)
++                expr = ArrayIndex(expr, index, pos=pos)
++            return expr
+         if tok.kind == "LENGTH":
+             self.advance()
+             self.expect("(")
+--- HW02/funny.lex
++++ HW03/funny.lex
+@@ -20,10 +20,16 @@
+ REQUIRES  = requires
+ ENSURES   = ensures
+ 
++# HW3: annotations and local declarations
++VAR = var
++TYPE_INT = int
++TYPE_BOOL = bool
++TYPE_ARRAY = array
++
+ IDENT = [A-Za-z_][A-Za-z0-9_]*
+ INT   = 0|[1-9][0-9]*
+ 
+ WS      @skip = [ \t\r\n]+
+ COMMENT @skip = //[^\r\n]*
+ 
+-OP = ==|!=|<=|>=|<|>|=|\+|-|\*|/|\(|\)|\[|\]|\{|\}|,|;
++OP = ==|!=|<=|>=|<|>|=|\+|-|\*|/|\(|\)|\[|\]|\{|\}|,|;|:
+--- HW02/grammar.txt
++++ HW03/grammar.txt
+@@ -1,99 +1,46 @@
+-ГРАММАТИКА FUNNY ДЛЯ HW2 (ветка LL(1), рекурсивный спуск)
+-========================================================
++Funny HW3: расширение грамматики вашего HW2.
+ 
+-ЭТАП 3. Грамматика -> LL(1)-форма.
+-Что происходит: берём грамматику со слайда (часть 1) и переписываем её так,
+-чтобы парсер мог по ОДНОМУ следующему токену однозначно выбрать правило (часть 2).
+-Для этого нужны три вещи (слайд «LL(1): что нужно»):
++Поддерживаемые типы: int, bool, array<T> (включая вложенные массивы).
++Вызовы имеют внутренний тип func(T1,...,Tn)->T.
++Строки, перегрузки и неявные приведения не включены в выбранное подмножество.
+ 
+-  1) Нет левой рекурсии. Правило вида  add_expr ::= add_expr '+' mul_expr
+-     в рекурсивном спуске вызывает само себя, не съев ни одного токена, —
+-     бесконечный цикл. Заменяем «хвостом»:
+-         add_expr ::= mul_expr add_tail
+-         add_tail ::= add_op mul_expr add_tail | ε
+-     В EBNF это записано как  mul_expr (("+" | "-") mul_expr)*, в коде — цикл while.
++function f(x: int, a: array<bool>) returns r: int
++  requires x >= 0
++  ensures r >= 0
++{
++  var y: int = x;
++  var inferred = 1;
++  var delayed;
++  delayed = 2;
++  r = y + inferred + delayed;
++}
+ 
+-  2) Нет общих префиксов (факторизация). Правила
+-         assign ::= IDENT "=" expr | IDENT "[" expr "]" "=" expr
+-     начинаются одинаково, по токену IDENT между ними не выбрать. Выносим IDENT:
+-         stmt        ::= IDENT assign_tail semi
+-         assign_tail ::= '=' expr | '[' expr ']' '=' expr
+-     То же для primary: x, a[i], f(x) -> IDENT ident_tail.
++Как и в HW2, результат — ИМЕНОВАННАЯ переменная после returns,
++а не оператор return. Точка с запятой необязательна (правило HW2).
++Синтаксический разбор допускает отсутствие аннотации в сигнатуре,
++чтобы сохранить совместимость с HW2; семантический проход выдаёт E_MISSING_TYPE.
++Локальные объявляются только через var, не через неизвестное имя слева от '='.
++Инициализация необязательна: var x; x=1; — бонусный вывод при первом присваивании.
+ 
+-  3) Для каждого A ::= α | β множества FIRST(α) и FIRST(β) не пересекаются,
+-     а если одна из альтернатив может быть пустой (ε) — FIRST другой не пересекается
+-     с FOLLOW(A). Это проверяет ЭТАП 4 (ll1.py) по части 2 этого файла:
+-     python3 main.py --grammar  ->  «Конфликтов LL(1) нет».
+-
+-Необязательные части (requires?, ensures?, else, invariant, ';') стали ε-правилами:
+-     requires ::= 'requires' expr | ε
+-Приоритеты операторов заданы уровнями (or -> and -> not -> сравнения -> + - -> * / -> унарный -):
+-чем ниже уровень, тем сильнее связывает оператор (подробно — ЭТАП 8 в parser.py).
+-
+-Часть 1 — EBNF. Это грамматика со слайда «Язык Funny: минимальный набор
+-конструкций». Всё, что отличается от слайда, помечено [Δn]; причины — в
+-REPORT.md, раздел «Отклонения от грамматики».
+-
+-program  := function+                                              [Δ1]
+-function := "function" IDENT "(" params ")" "returns" IDENT
+-            requires? ensures? block
+-params   := (IDENT ("," IDENT)*)?
+-requires := "requires" expr
+-ensures  := "ensures" expr
+-block    := "{" stmt* "}"
+-stmt     := assign ";"? | if | while | assert ";"? | assume ";"? | block   [Δ2]
+-assign   := IDENT "=" expr
+-          | IDENT "[" expr "]" "=" expr
+-if       := "if" "(" expr ")" block ("else" block)?
+-while    := "while" "(" expr ")" ("invariant" expr)? block               [Δ3]
+-assert   := "assert" expr
+-assume   := "assume" expr
+-
+-expr     := or_expr
+-or_expr  := and_expr ("or" and_expr)*
+-and_expr := not_expr ("and" not_expr)*
+-not_expr := "not" not_expr | cmp_expr
+-cmp_expr := add_expr (("==" | "!=" | "<" | "<=" | ">" | ">=") add_expr)?
+-add_expr := mul_expr (("+" | "-") mul_expr)*
+-mul_expr := unary (("*" | "/") unary)*
+-unary    := "-" unary | primary
+-primary  := INT | "true" | "false" | IDENT
+-          | IDENT "[" expr "]"
+-          | IDENT "(" (expr ("," expr)*)? ")"                          [Δ4]
+-          | "length" "(" expr ")"                                      [Δ4]
+-          | "(" expr ")"
+-
+-Приоритеты (от слабого к сильному) и ассоциативность — заданы уровнями грамматики:
+-  or (лев.) < and (лев.) < not (прав., префикс) < сравнения (неассоц.)
+-  < + - (лев.) < * / (лев.) < унарный - (прав.)
+-
+-Отклонения кратко:
+-  [Δ1] пустая программа — синтаксическая ошибка (в тестах слайда пустой ввод негативный);
+-  [Δ2] ';' после простых операторов разрешена, но не обязательна (тесты слайда пишут её,
+-       грамматика слайда — нет; LL(1) от этого не страдает: ';' нет в FOLLOW(stmt));
+-  [Δ3] у while необязательный invariant (токен INVARIANT есть в лексере HW1);
+-  [Δ4] вызовы функций (в AST слайда есть узел Call) и length(a) (токен LENGTH из HW1).
+-
+-
+-Часть 2 — LL(1)-форма. Её читает ll1.py: строит FIRST, FOLLOW, таблицу M[A, a]
+-и проверяет, что конфликтов нет (python3 main.py --grammar).
+-Левая рекурсия заменена хвостами *_tail, общий префикс IDENT вынесен
+-(stmt -> IDENT assign_tail, primary -> IDENT ident_tail).
+-Нотация: 'x' — терминал (ключевое слово или знак), IDENT INT EOF — классы токенов,
+-ε — пустая цепочка, остальные имена — нетерминалы.
++LL(1)-форма ниже читается сохранённым ll1.py из HW2.
++TYPE_INT/TYPE_BOOL/TYPE_ARRAY — имена лексических токенов int/bool/array.
+ 
+ ### LL1 BEGIN
+ program      ::= function functions EOF
+ functions    ::= function functions | ε
+-function     ::= 'function' IDENT '(' params ')' 'returns' IDENT requires ensures block
+-params       ::= IDENT params_tail | ε
+-params_tail  ::= ',' IDENT params_tail | ε
++function     ::= 'function' IDENT '(' params ')' 'returns' IDENT annotation requires ensures block
++params       ::= IDENT annotation params_tail | ε
++params_tail  ::= ',' IDENT annotation params_tail | ε
++annotation   ::= ':' type | ε
++type         ::= TYPE_INT | TYPE_BOOL | TYPE_ARRAY '<' type '>'
+ requires     ::= 'requires' expr | ε
+ ensures      ::= 'ensures' expr | ε
+ block        ::= '{' stmts '}'
+ stmts        ::= stmt stmts | ε
+-stmt         ::= IDENT assign_tail semi | if_stmt | while_stmt | 'assert' expr semi | 'assume' expr semi | block
+-assign_tail  ::= '=' expr | '[' expr ']' '=' expr
++stmt         ::= IDENT assign_tail semi | 'var' IDENT annotation initializer semi | if_stmt | while_stmt | 'assert' expr semi | 'assume' expr semi | block
++initializer  ::= '=' expr | ε
++assign_tail  ::= indexes '=' expr
++indexes      ::= '[' expr ']' indexes | ε
+ semi         ::= ';' | ε
+ if_stmt      ::= 'if' '(' expr ')' block else_part
+ else_part    ::= 'else' block | ε
+@@ -116,7 +63,7 @@
+ mul_op       ::= '*' | '/'
+ unary        ::= '-' unary | primary
+ primary      ::= INT | 'true' | 'false' | IDENT ident_tail | 'length' '(' expr ')' | '(' expr ')'
+-ident_tail   ::= '[' expr ']' | '(' args ')' | ε
++ident_tail   ::= '(' args ')' indexes | indexes
+ args         ::= expr args_tail | ε
+ args_tail    ::= ',' expr args_tail | ε
+ ### LL1 END

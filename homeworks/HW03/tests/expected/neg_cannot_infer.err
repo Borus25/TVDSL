@@ -1,0 +1,1 @@
+error: cannot infer type of 'x': no valid assignment at 1:33 [E_CANNOT_INFER]

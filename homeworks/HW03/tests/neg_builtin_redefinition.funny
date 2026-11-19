@@ -1,0 +1,1 @@
+function store() returns r:int {r=0;}

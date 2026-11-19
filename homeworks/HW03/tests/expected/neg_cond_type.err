@@ -1,0 +1,1 @@
+error: if condition must be bool, got int at 1:33 [E_CONDITION]

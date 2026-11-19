@@ -1,0 +1,1 @@
+error: while condition must be bool, got int at 1:41 [E_CONDITION]

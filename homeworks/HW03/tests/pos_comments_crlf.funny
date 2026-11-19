@@ -1,0 +1,5 @@
+function f() returns r: int {
+ // comment
+ var x=0;
+ r=x;
+}

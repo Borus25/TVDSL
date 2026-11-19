@@ -1,0 +1,1 @@
+error: cannot assign array<array<bool>> to array<array<int>> at 1:72 [E_ASSIGN_TYPE]

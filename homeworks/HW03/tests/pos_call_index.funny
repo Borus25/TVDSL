@@ -1,0 +1,1 @@
+function g(a: array<int>) returns r: array<int> {r=a;} function f(a: array<int>) returns r: int {r=g(a)[0];}

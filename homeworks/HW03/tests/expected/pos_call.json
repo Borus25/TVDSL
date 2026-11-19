@@ -1,0 +1,133 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(int, int)->int",
+      "name": "add",
+      "params": [
+        "a",
+        "b"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:47"
+            },
+            "value": {
+              "node": "BinaryOp",
+              "type": "int",
+              "op": "+",
+              "left": {
+                "node": "Ident",
+                "type": "int",
+                "name": "a",
+                "pos": "1:49"
+              },
+              "right": {
+                "node": "Ident",
+                "type": "int",
+                "name": "b",
+                "pos": "1:51"
+              },
+              "pos": "1:49"
+            },
+            "pos": "1:47"
+          }
+        ],
+        "pos": "1:45"
+      },
+      "param_types": [
+        "int",
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          22
+        ]
+      ],
+      "return_pos": [
+        1,
+        38
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    },
+    {
+      "node": "Function",
+      "type": "func()->int",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "2:31"
+            },
+            "value": {
+              "node": "Call",
+              "type": "int",
+              "name": "add",
+              "args": [
+                {
+                  "node": "Int",
+                  "type": "int",
+                  "value": 1,
+                  "pos": "2:37"
+                },
+                {
+                  "node": "Int",
+                  "type": "int",
+                  "value": 2,
+                  "pos": "2:39"
+                }
+              ],
+              "pos": "2:33"
+            },
+            "pos": "2:31"
+          }
+        ],
+        "pos": "2:29"
+      },
+      "param_types": [],
+      "return_type": "int",
+      "param_positions": [],
+      "return_pos": [
+        2,
+        22
+      ],
+      "name_pos": [
+        2,
+        10
+      ],
+      "pos": "2:1"
+    }
+  ],
+  "pos": "1:1"
+}

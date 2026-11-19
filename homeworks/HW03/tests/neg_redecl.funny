@@ -1,0 +1,1 @@
+function f() returns r: int { var x:int=1; var x:int=2; r=0; }

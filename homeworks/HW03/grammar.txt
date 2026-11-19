@@ -1,0 +1,69 @@
+Funny HW3: расширение грамматики вашего HW2.
+
+Поддерживаемые типы: int, bool, array<T> (включая вложенные массивы).
+Вызовы имеют внутренний тип func(T1,...,Tn)->T.
+Строки, перегрузки и неявные приведения не включены в выбранное подмножество.
+
+function f(x: int, a: array<bool>) returns r: int
+  requires x >= 0
+  ensures r >= 0
+{
+  var y: int = x;
+  var inferred = 1;
+  var delayed;
+  delayed = 2;
+  r = y + inferred + delayed;
+}
+
+Как и в HW2, результат — ИМЕНОВАННАЯ переменная после returns,
+а не оператор return. Точка с запятой необязательна (правило HW2).
+Синтаксический разбор допускает отсутствие аннотации в сигнатуре,
+чтобы сохранить совместимость с HW2; семантический проход выдаёт E_MISSING_TYPE.
+Локальные объявляются только через var, не через неизвестное имя слева от '='.
+Инициализация необязательна: var x; x=1; — бонусный вывод при первом присваивании.
+
+LL(1)-форма ниже читается сохранённым ll1.py из HW2.
+TYPE_INT/TYPE_BOOL/TYPE_ARRAY — имена лексических токенов int/bool/array.
+
+### LL1 BEGIN
+program      ::= function functions EOF
+functions    ::= function functions | ε
+function     ::= 'function' IDENT '(' params ')' 'returns' IDENT annotation requires ensures block
+params       ::= IDENT annotation params_tail | ε
+params_tail  ::= ',' IDENT annotation params_tail | ε
+annotation   ::= ':' type | ε
+type         ::= TYPE_INT | TYPE_BOOL | TYPE_ARRAY '<' type '>'
+requires     ::= 'requires' expr | ε
+ensures      ::= 'ensures' expr | ε
+block        ::= '{' stmts '}'
+stmts        ::= stmt stmts | ε
+stmt         ::= IDENT assign_tail semi | 'var' IDENT annotation initializer semi | if_stmt | while_stmt | 'assert' expr semi | 'assume' expr semi | block
+initializer  ::= '=' expr | ε
+assign_tail  ::= indexes '=' expr
+indexes      ::= '[' expr ']' indexes | ε
+semi         ::= ';' | ε
+if_stmt      ::= 'if' '(' expr ')' block else_part
+else_part    ::= 'else' block | ε
+while_stmt   ::= 'while' '(' expr ')' invariant block
+invariant    ::= 'invariant' expr | ε
+expr         ::= or_expr
+or_expr      ::= and_expr or_tail
+or_tail      ::= 'or' and_expr or_tail | ε
+and_expr     ::= not_expr and_tail
+and_tail     ::= 'and' not_expr and_tail | ε
+not_expr     ::= 'not' not_expr | cmp_expr
+cmp_expr     ::= add_expr cmp_tail
+cmp_tail     ::= cmp_op add_expr | ε
+cmp_op       ::= '==' | '!=' | '<' | '<=' | '>' | '>='
+add_expr     ::= mul_expr add_tail
+add_tail     ::= add_op mul_expr add_tail | ε
+add_op       ::= '+' | '-'
+mul_expr     ::= unary mul_tail
+mul_tail     ::= mul_op unary mul_tail | ε
+mul_op       ::= '*' | '/'
+unary        ::= '-' unary | primary
+primary      ::= INT | 'true' | 'false' | IDENT ident_tail | 'length' '(' expr ')' | '(' expr ')'
+ident_tail   ::= '(' args ')' indexes | indexes
+args         ::= expr args_tail | ε
+args_tail    ::= ',' expr args_tail | ε
+### LL1 END

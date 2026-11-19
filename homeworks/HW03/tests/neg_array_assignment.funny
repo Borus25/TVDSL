@@ -1,0 +1,1 @@
+function f(a:array<int>,b:array<bool>) returns r:int {a=b; r=0;}

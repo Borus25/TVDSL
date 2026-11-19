@@ -1,0 +1,1 @@
+function f(x: bool) returns r: bool { r = not x and true or false; }

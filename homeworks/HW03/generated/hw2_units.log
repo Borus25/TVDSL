@@ -1,0 +1,23 @@
+test_all_test_programs (test_parser.AgreementWithGrammar.test_all_test_programs) ... ok
+test_random_mutations (test_parser.AgreementWithGrammar.test_random_mutations) ... ok
+test_array_assign_and_desugar (test_parser.AstTests.test_array_assign_and_desugar) ... ok
+test_json_roundtrip (test_parser.AstTests.test_json_roundtrip) ... ok
+test_positions (test_parser.AstTests.test_positions) ... ok
+test_precedence (test_parser.AstTests.test_precedence) ... ok
+test_programs_derived_from_grammar_are_accepted (test_parser.GeneratedPrograms.test_programs_derived_from_grammar_are_accepted) ... ok
+test_first_follow_examples (test_parser.GrammarTests.test_first_follow_examples) ... ok
+test_ll1_no_conflicts (test_parser.GrammarTests.test_ll1_no_conflicts) ... ok
+test_dfa_json_matches_funny_lex (test_parser.LexerTests.test_dfa_json_matches_funny_lex)
+dfa.json собран из текущего funny.lex (никто не забыл пересобрать). ... ok
+test_keywords_requires_ensures (test_parser.LexerTests.test_keywords_requires_ensures) ... ok
+test_peek_does_not_advance (test_parser.LexerTests.test_peek_does_not_advance) ... ok
+test_positions_and_kinds (test_parser.LexerTests.test_positions_and_kinds) ... ok
+test_trap_and_comments (test_parser.LexerTests.test_trap_and_comments) ... ok
+test_errors_have_different_positions (test_parser.Robustness.test_errors_have_different_positions) ... ok
+test_no_hang_on_garbage (test_parser.Robustness.test_no_hang_on_garbage) ... ok
+test_recovery_keeps_parsing_after_error (test_parser.Robustness.test_recovery_keeps_parsing_after_error) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 2.968s
+
+OK

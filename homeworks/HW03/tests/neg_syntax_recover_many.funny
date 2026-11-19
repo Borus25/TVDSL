@@ -1,0 +1,1 @@
+function f() returns r:int {var x:int=; var y:bool=; r=0;}

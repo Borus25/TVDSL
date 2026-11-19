@@ -1,0 +1,1 @@
+function f(b:bool) returns r:int {if(b){var x=1;}else{r=x;} r=0;}

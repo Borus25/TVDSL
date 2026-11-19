@@ -1,0 +1,126 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(int)->int",
+      "name": "a",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:37"
+            },
+            "value": {
+              "node": "Call",
+              "type": "int",
+              "name": "b",
+              "args": [
+                {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "x",
+                  "pos": "1:41"
+                }
+              ],
+              "pos": "1:39"
+            },
+            "pos": "1:37"
+          }
+        ],
+        "pos": "1:35"
+      },
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        28
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    },
+    {
+      "node": "Function",
+      "type": "func(int)->int",
+      "name": "b",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "2:37"
+            },
+            "value": {
+              "node": "Call",
+              "type": "int",
+              "name": "a",
+              "args": [
+                {
+                  "node": "Ident",
+                  "type": "int",
+                  "name": "x",
+                  "pos": "2:41"
+                }
+              ],
+              "pos": "2:39"
+            },
+            "pos": "2:37"
+          }
+        ],
+        "pos": "2:35"
+      },
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          2,
+          12
+        ]
+      ],
+      "return_pos": [
+        2,
+        28
+      ],
+      "name_pos": [
+        2,
+        10
+      ],
+      "pos": "2:1"
+    }
+  ],
+  "pos": "1:1"
+}

@@ -1,0 +1,1 @@
+error: argument 3 of 'store': expected int, got bool at 1:60 [E_ARG_TYPE]

@@ -1,0 +1,1 @@
+function f(a: array<int>, i: int) returns r: int { a[i]=1; r=a[i]+length(a); }

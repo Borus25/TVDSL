@@ -1,0 +1,1 @@
+function f(b:bool) returns r:int {var x:int; while(b){x=1;} r=x;}

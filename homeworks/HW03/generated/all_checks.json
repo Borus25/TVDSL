@@ -1,0 +1,22 @@
+[
+  {
+    "check": "hw2_snapshots",
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "check": "hw2_units",
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "check": "hw3_grammar",
+    "exit_code": 0,
+    "passed": true
+  },
+  {
+    "check": "hw3_tests",
+    "exit_code": 0,
+    "passed": true
+  }
+]

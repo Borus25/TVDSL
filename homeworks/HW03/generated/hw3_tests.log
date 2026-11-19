@@ -1,0 +1,126 @@
+PASS pos_types_ok
+PASS pos_bool
+PASS pos_call
+PASS pos_array
+PASS pos_nested
+PASS pos_shadowing
+PASS pos_while
+PASS pos_requires_ensures
+PASS pos_mutual_recursion
+PASS pos_var_infer
+PASS pos_deferred_infer
+PASS pos_array_infer
+PASS pos_both_branches_init
+PASS pos_both_branches_return
+PASS pos_array_nested
+PASS pos_call_index
+PASS pos_array_return
+PASS pos_store
+PASS pos_comparison_bool
+PASS pos_comparison_array
+PASS pos_operators
+PASS pos_assert_assume
+PASS pos_no_semicolons
+PASS pos_forward
+PASS pos_typed_without_initializer
+PASS pos_comments_crlf
+PASS neg_undeclared
+PASS neg_redecl
+PASS neg_type_mismatch
+PASS neg_cond_type
+PASS neg_while_cond
+PASS neg_wrong_argc
+PASS neg_wrong_arg_type
+PASS neg_unknown_func
+PASS neg_array_index
+PASS neg_not_array
+PASS neg_multiple_errors
+PASS neg_no_cascade
+PASS neg_use_before_decl
+PASS neg_out_of_scope
+PASS neg_duplicate_param
+PASS neg_param_redecl
+PASS neg_duplicate_function
+PASS neg_missing_annotations
+PASS neg_inference_conflict
+PASS neg_cannot_infer
+PASS neg_failed_infer
+PASS neg_uninitialized
+PASS neg_conditional_init
+PASS neg_loop_init
+PASS neg_return_missing
+PASS neg_return_one_branch
+PASS neg_requires
+PASS neg_ensures
+PASS neg_invariant
+PASS neg_assert_assume
+PASS neg_bad_arithmetic
+PASS neg_bad_logic
+PASS neg_bad_unary
+PASS neg_mixed_equality
+PASS neg_array_element
+PASS neg_array_assignment
+PASS neg_length
+PASS neg_not_callable
+PASS neg_assign_function
+PASS neg_shadow_function
+PASS neg_nested_array_type
+PASS neg_store_element
+PASS neg_store_arity
+PASS neg_return_used_early
+PASS neg_independent_operand
+PASS neg_builtin_redefinition
+PASS neg_infer_branch_conflict
+PASS neg_branch_decl_scope
+PASS neg_syntax
+PASS neg_unsupported_string
+PASS neg_unknown_assignment
+PASS neg_extra_arg_unknown
+PASS pos_function_alias
+PASS pos_inference_after_error
+PASS pos_infer_two_branches
+PASS neg_local_leak_function
+PASS neg_array_param_type
+PASS neg_compare_functions
+PASS neg_param_result_collision
+PASS neg_if_else_type_conflict
+PASS neg_self_initializer
+PASS neg_requires_uninitialized_result
+PASS neg_ensures_body_local
+PASS neg_syntax_recover_many
+Fixtures: 90/90; unit tests: 30
+test_all_original_hw2_positive_fixtures_parse (test_semantic.ParserIntegrationTests.test_all_original_hw2_positive_fixtures_parse) ... ok
+test_cli_file_output (test_semantic.ParserIntegrationTests.test_cli_file_output) ... ok
+test_cli_json_and_exit_codes (test_semantic.ParserIntegrationTests.test_cli_json_and_exit_codes) ... ok
+test_cli_syntax_error_has_null_ast (test_semantic.ParserIntegrationTests.test_cli_syntax_error_has_null_ast) ... ok
+test_grammar_ll1 (test_semantic.ParserIntegrationTests.test_grammar_ll1) ... ok
+test_lexer_new_tokens_and_keyword_prefix (test_semantic.ParserIntegrationTests.test_lexer_new_tokens_and_keyword_prefix) ... ok
+test_parse_only_accepts_old_untyped_syntax (test_semantic.ParserIntegrationTests.test_parse_only_accepts_old_untyped_syntax) ... ok
+test_table_parser_matches_recursive_parser (test_semantic.ParserIntegrationTests.test_table_parser_matches_recursive_parser) ... ok
+test_all_successful_expression_nodes_have_types (test_semantic.SemanticTests.test_all_successful_expression_nodes_have_types) ... ok
+test_analyzer_can_be_reused (test_semantic.SemanticTests.test_analyzer_can_be_reused) ... ok
+test_callable_alias_must_be_initialized (test_semantic.SemanticTests.test_callable_alias_must_be_initialized) ... ok
+test_conditions_contracts_and_invariant (test_semantic.SemanticTests.test_conditions_contracts_and_invariant) ... ok
+test_contradiction_does_not_retype_variable (test_semantic.SemanticTests.test_contradiction_does_not_retype_variable) ... ok
+test_desugar_nested_array_preserves_types (test_semantic.SemanticTests.test_desugar_nested_array_preserves_types) ... ok
+test_error_expressions_are_annotated (test_semantic.SemanticTests.test_error_expressions_are_annotated) ... ok
+test_exact_multiple_error_positions (test_semantic.SemanticTests.test_exact_multiple_error_positions) ... ok
+test_extra_arguments_still_checked (test_semantic.SemanticTests.test_extra_arguments_still_checked) ... ok
+test_forward_signature_uses_declared_result (test_semantic.SemanticTests.test_forward_signature_uses_declared_result) ... ok
+test_if_initialization_merge (test_semantic.SemanticTests.test_if_initialization_merge) ... ok
+test_infer_from_later_valid_assignment (test_semantic.SemanticTests.test_infer_from_later_valid_assignment) ... ok
+test_initializer_uses_outer_binding (test_semantic.SemanticTests.test_initializer_uses_outer_binding) ... ok
+test_json_roundtrip_typed_ast (test_semantic.SemanticTests.test_json_roundtrip_typed_ast) ... ok
+test_no_cascade_exact (test_semantic.SemanticTests.test_no_cascade_exact) ... ok
+test_duplicate_keeps_first (test_semantic.SymbolTests.test_duplicate_keeps_first) ... ok
+test_shadowing_and_restoration (test_semantic.SymbolTests.test_shadowing_and_restoration) ... ok
+test_error_is_not_int (test_semantic.TypeTests.test_error_is_not_int) ... ok
+test_function_unification (test_semantic.TypeTests.test_function_unification) ... ok
+test_invalid_type_rejected (test_semantic.TypeTests.test_invalid_type_rejected) ... ok
+test_nested_array_unification (test_semantic.TypeTests.test_nested_array_unification) ... ok
+test_primitive_equality (test_semantic.TypeTests.test_primitive_equality) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.248s
+
+OK

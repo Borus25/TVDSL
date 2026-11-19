@@ -1,0 +1,1 @@
+error: ensures condition must be bool, got int at 1:36 [E_CONTRACT]

@@ -1,0 +1,1 @@
+error: invariant condition must be bool, got int at 1:56 [E_CONTRACT]

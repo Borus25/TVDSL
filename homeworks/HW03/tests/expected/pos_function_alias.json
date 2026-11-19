@@ -1,0 +1,122 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(int)->int",
+      "name": "g",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:34"
+            },
+            "value": {
+              "node": "Ident",
+              "type": "int",
+              "name": "x",
+              "pos": "1:36"
+            },
+            "pos": "1:34"
+          }
+        ],
+        "pos": "1:33"
+      },
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        27
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    },
+    {
+      "node": "Function",
+      "type": "func()->int",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "VarDecl",
+            "type": "func(int)->int",
+            "name": "h",
+            "annotation": null,
+            "value": {
+              "node": "Ident",
+              "type": "func(int)->int",
+              "name": "g",
+              "pos": "1:74"
+            },
+            "pos": "1:72"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:77"
+            },
+            "value": {
+              "node": "Call",
+              "type": "int",
+              "name": "h",
+              "args": [
+                {
+                  "node": "Int",
+                  "type": "int",
+                  "value": 1,
+                  "pos": "1:81"
+                }
+              ],
+              "pos": "1:79"
+            },
+            "pos": "1:77"
+          }
+        ],
+        "pos": "1:67"
+      },
+      "param_types": [],
+      "return_type": "int",
+      "param_positions": [],
+      "return_pos": [
+        1,
+        61
+      ],
+      "name_pos": [
+        1,
+        49
+      ],
+      "pos": "1:40"
+    }
+  ],
+  "pos": "1:1"
+}

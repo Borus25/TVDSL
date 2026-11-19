@@ -1,0 +1,1 @@
+function g(x:int) returns r:int {r=x;} function f() returns r:int {var h=g; r=h(1);}

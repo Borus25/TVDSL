@@ -1,0 +1,1 @@
+error: cannot assign bool to int at 1:60 [E_ASSIGN_TYPE]

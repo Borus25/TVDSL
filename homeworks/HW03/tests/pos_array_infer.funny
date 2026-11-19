@@ -1,0 +1,1 @@
+function f(a: array<bool>) returns r: bool { var b=a; r=b[0]; }

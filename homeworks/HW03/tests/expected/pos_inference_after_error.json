@@ -1,0 +1,89 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func()->int",
+      "name": "f",
+      "params": [],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "VarDecl",
+            "type": "int",
+            "name": "x",
+            "annotation": null,
+            "value": null,
+            "pos": "1:33"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "x",
+              "pos": "1:36"
+            },
+            "value": {
+              "node": "Int",
+              "type": "int",
+              "value": 1,
+              "pos": "1:38"
+            },
+            "pos": "1:36"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "x",
+              "pos": "1:41"
+            },
+            "value": {
+              "node": "Int",
+              "type": "int",
+              "value": 2,
+              "pos": "1:43"
+            },
+            "pos": "1:41"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:46"
+            },
+            "value": {
+              "node": "Ident",
+              "type": "int",
+              "name": "x",
+              "pos": "1:48"
+            },
+            "pos": "1:46"
+          }
+        ],
+        "pos": "1:28"
+      },
+      "param_types": [],
+      "return_type": "int",
+      "param_positions": [],
+      "return_pos": [
+        1,
+        22
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}

@@ -1,0 +1,1 @@
+error: function 'add' expects 2 args, got 1 at 1:80 [E_ARG_COUNT]

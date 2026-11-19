@@ -1,0 +1,1 @@
+error: argument 1 of 'g': expected array<int>, got array<bool> at 1:95 [E_ARG_TYPE]

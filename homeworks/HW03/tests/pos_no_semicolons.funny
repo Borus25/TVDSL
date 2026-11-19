@@ -1,0 +1,1 @@
+function f(x: int) returns r: int {var y=x+1 r=y}

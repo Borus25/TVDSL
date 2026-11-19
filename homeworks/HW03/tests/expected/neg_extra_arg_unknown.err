@@ -1,0 +1,2 @@
+error: function 'g' expects 0 args, got 1 at 1:65 [E_ARG_COUNT]
+error: use of undeclared 'y' at 1:67 [E_UNDECLARED]

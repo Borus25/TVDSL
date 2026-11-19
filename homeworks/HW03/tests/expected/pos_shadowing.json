@@ -1,0 +1,87 @@
+{
+  "node": "Program",
+  "functions": [
+    {
+      "node": "Function",
+      "type": "func(int)->int",
+      "name": "f",
+      "params": [
+        "x"
+      ],
+      "returns": "r",
+      "requires": null,
+      "ensures": null,
+      "body": {
+        "node": "Block",
+        "stmts": [
+          {
+            "node": "Block",
+            "stmts": [
+              {
+                "node": "VarDecl",
+                "type": "bool",
+                "name": "x",
+                "annotation": "bool",
+                "value": {
+                  "node": "Bool",
+                  "type": "bool",
+                  "value": true,
+                  "pos": "1:51"
+                },
+                "pos": "1:43"
+              },
+              {
+                "node": "Assert",
+                "expr": {
+                  "node": "Ident",
+                  "type": "bool",
+                  "name": "x",
+                  "pos": "1:64"
+                },
+                "pos": "1:57"
+              }
+            ],
+            "pos": "1:37"
+          },
+          {
+            "node": "Assign",
+            "target": {
+              "node": "Ident",
+              "type": "int",
+              "name": "r",
+              "pos": "1:69"
+            },
+            "value": {
+              "node": "Ident",
+              "type": "int",
+              "name": "x",
+              "pos": "1:71"
+            },
+            "pos": "1:69"
+          }
+        ],
+        "pos": "1:35"
+      },
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "param_positions": [
+        [
+          1,
+          12
+        ]
+      ],
+      "return_pos": [
+        1,
+        28
+      ],
+      "name_pos": [
+        1,
+        10
+      ],
+      "pos": "1:1"
+    }
+  ],
+  "pos": "1:1"
+}
