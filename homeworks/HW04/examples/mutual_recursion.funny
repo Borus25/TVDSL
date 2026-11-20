@@ -1,0 +1,19 @@
+function even(n:int) returns r:bool
+{
+  if ((n == 0)) {
+    r = true;
+  }
+  else {
+    r = odd((n - 1));
+  }
+}
+
+function odd(n:int) returns r:bool
+{
+  if ((n == 0)) {
+    r = false;
+  }
+  else {
+    r = even((n - 1));
+  }
+}

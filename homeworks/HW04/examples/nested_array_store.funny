@@ -1,0 +1,5 @@
+function f(a:array<array<int>>) returns r:int
+{
+  a[0][1] = 9;
+  r = a[0][1];
+}

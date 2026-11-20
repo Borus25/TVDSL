@@ -1,0 +1,11 @@
+digraph CFG {
+  node [shape=box];
+  B0 [label="B0\nv3_i = 0\nv4_s = 0"];
+  B0 -> B1;
+  B1 [label="B1\nL1:\nt1 = v3_i >= 0\nassert t1\nt2 = v3_i < v1_n\nif t2 goto L2 else L3"];
+  B1 -> B2;
+  B1 -> B3;
+  B2 [label="B2\nL2:\nt3 = v4_s + v3_i\nv4_s = t3\nt4 = v3_i + 1\nv3_i = t4\ngoto L1"];
+  B2 -> B1;
+  B3 [label="B3\nL3:\nv2_r = v4_s\nreturn v2_r"];
+}

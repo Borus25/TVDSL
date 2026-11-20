@@ -1,0 +1,72 @@
+[
+  {
+    "function": "f",
+    "args": [
+      -7
+    ],
+    "expected": 5,
+    "before": {
+      "result": 5
+    },
+    "after": {
+      "result": 5
+    },
+    "passed": true
+  },
+  {
+    "function": "f",
+    "args": [
+      0
+    ],
+    "expected": 12,
+    "before": {
+      "result": 12
+    },
+    "after": {
+      "result": 12
+    },
+    "passed": true
+  },
+  {
+    "function": "f",
+    "args": [
+      1
+    ],
+    "expected": 13,
+    "before": {
+      "result": 13
+    },
+    "after": {
+      "result": 13
+    },
+    "passed": true
+  },
+  {
+    "function": "f",
+    "args": [
+      5
+    ],
+    "expected": 17,
+    "before": {
+      "result": 17
+    },
+    "after": {
+      "result": 17
+    },
+    "passed": true
+  },
+  {
+    "function": "f",
+    "args": [
+      100
+    ],
+    "expected": 112,
+    "before": {
+      "result": 112
+    },
+    "after": {
+      "result": 112
+    },
+    "passed": true
+  }
+]

@@ -1,0 +1,23 @@
+graph Interference {
+  "t1" [label="t1 / c3"];
+  "t1" -- "v1_n";
+  "t1" -- "v3_i";
+  "t1" -- "v4_s";
+  "t2" [label="t2 / c3"];
+  "t2" -- "v1_n";
+  "t2" -- "v3_i";
+  "t2" -- "v4_s";
+  "t3" [label="t3 / c2"];
+  "t3" -- "v1_n";
+  "t3" -- "v3_i";
+  "t4" [label="t4 / c1"];
+  "t4" -- "v1_n";
+  "t4" -- "v4_s";
+  "v1_n" [label="v1_n / c0"];
+  "v1_n" -- "v3_i";
+  "v1_n" -- "v4_s";
+  "v2_r" [label="v2_r / c0"];
+  "v3_i" [label="v3_i / c1"];
+  "v3_i" -- "v4_s";
+  "v4_s" [label="v4_s / c2"];
+}

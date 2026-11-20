@@ -1,0 +1,6 @@
+function f(x:int) returns r:int
+{
+  assert (x >= 0);
+  assume (x < 10);
+  r = x;
+}

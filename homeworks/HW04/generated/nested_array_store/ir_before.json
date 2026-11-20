@@ -1,0 +1,124 @@
+{
+  "format": "funny-ir/1",
+  "functions": [
+    {
+      "name": "f",
+      "params": [
+        "v1_a"
+      ],
+      "param_types": [
+        "array<array<int>>"
+      ],
+      "return_type": "int",
+      "types": {
+        "v1_a": "array<array<int>>",
+        "v2_r": "int",
+        "t1": "array<int>",
+        "t2": "array<int>",
+        "t3": "array<array<int>>",
+        "t4": "array<int>",
+        "t5": "int"
+      },
+      "code": [
+        {
+          "op": "load",
+          "dst": "t1",
+          "args": [
+            {
+              "var": "v1_a"
+            },
+            {
+              "const": 0
+            }
+          ]
+        },
+        {
+          "op": "call",
+          "dst": "t2",
+          "args": [
+            {
+              "func": "store"
+            },
+            {
+              "var": "t1"
+            },
+            {
+              "const": 1
+            },
+            {
+              "const": 9
+            }
+          ]
+        },
+        {
+          "op": "call",
+          "dst": "t3",
+          "args": [
+            {
+              "func": "store"
+            },
+            {
+              "var": "v1_a"
+            },
+            {
+              "const": 0
+            },
+            {
+              "var": "t2"
+            }
+          ]
+        },
+        {
+          "op": "copy",
+          "dst": "v1_a",
+          "args": [
+            {
+              "var": "t3"
+            }
+          ]
+        },
+        {
+          "op": "load",
+          "dst": "t4",
+          "args": [
+            {
+              "var": "v1_a"
+            },
+            {
+              "const": 0
+            }
+          ]
+        },
+        {
+          "op": "load",
+          "dst": "t5",
+          "args": [
+            {
+              "var": "t4"
+            },
+            {
+              "const": 1
+            }
+          ]
+        },
+        {
+          "op": "copy",
+          "dst": "v2_r",
+          "args": [
+            {
+              "var": "t5"
+            }
+          ]
+        },
+        {
+          "op": "return",
+          "args": [
+            {
+              "var": "v2_r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

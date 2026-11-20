@@ -1,0 +1,9 @@
+function f(v1_a) -> int:
+  t1 = load v1_a, 0
+  t2 = call &store(t1, 1, 9)
+  t3 = call &store(v1_a, 0, t2)
+  v1_a = t3
+  t4 = load v1_a, 0
+  t5 = load t4, 1
+  v2_r = t5
+  return v2_r

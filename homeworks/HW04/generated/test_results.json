@@ -1,0 +1,14 @@
+{
+  "unit_tests": 36,
+  "unit_failures": 0,
+  "unit_errors": 0,
+  "typed_fixture_programs": 35,
+  "pass_combinations": 16,
+  "runtime_cases_per_combination": 72,
+  "differential_checks": 1152,
+  "random_integer_checks": 700,
+  "real_hw3_integration": {
+    "status": "not_run",
+    "reason": "Use --hw3-dir to enable in your repository"
+  }
+}

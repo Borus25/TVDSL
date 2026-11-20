@@ -1,0 +1,4 @@
+function f(a:array<bool>) returns r:bool
+{
+  r = a[0];
+}

@@ -1,0 +1,4 @@
+function f() returns r:bool
+{
+  r = (true and ((1 / 0) > 0));
+}

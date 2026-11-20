@@ -1,0 +1,5 @@
+function f(a:array<int>) returns r:int
+{
+  var dead:int = a[9];
+  r = 0;
+}

@@ -1,0 +1,4 @@
+digraph CFG {
+  node [shape=box];
+  B0 [label="B0\nt3 = v1_x + 6\nt4 = t3 + 6\nv2_r = t4\nreturn v2_r"];
+}

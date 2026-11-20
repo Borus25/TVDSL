@@ -1,0 +1,116 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "b"
+        ],
+        "param_types": [
+          "bool"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "VarDecl",
+              "name": "x",
+              "value": {
+                "node": "Int",
+                "value": 0,
+                "type": "int",
+                "pos": "1:1"
+              },
+              "annotation": "int",
+              "type": "int",
+              "pos": "1:1"
+            },
+            {
+              "node": "If",
+              "cond": {
+                "node": "Ident",
+                "name": "b",
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "then": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "x",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Int",
+                      "value": 4,
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "else": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "x",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Int",
+                      "value": 6,
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "Ident",
+                "name": "x",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(bool)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

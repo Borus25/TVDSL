@@ -1,0 +1,5 @@
+function f(v1_x) -> int:
+  t3 = v1_x + 6
+  t4 = t3 + 6
+  v2_r = t4
+  return v2_r

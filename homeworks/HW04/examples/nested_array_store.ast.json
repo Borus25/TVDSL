@@ -1,0 +1,109 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "a"
+        ],
+        "param_types": [
+          "array<array<int>>"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "Assign",
+              "target": {
+                "node": "ArrayIndex",
+                "base": {
+                  "node": "ArrayIndex",
+                  "base": {
+                    "node": "Ident",
+                    "name": "a",
+                    "type": "array<array<int>>",
+                    "pos": "1:1"
+                  },
+                  "index": {
+                    "node": "Int",
+                    "value": 0,
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "type": "array<int>",
+                  "pos": "1:1"
+                },
+                "index": {
+                  "node": "Int",
+                  "value": 1,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "Int",
+                "value": 9,
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "ArrayIndex",
+                "base": {
+                  "node": "ArrayIndex",
+                  "base": {
+                    "node": "Ident",
+                    "name": "a",
+                    "type": "array<array<int>>",
+                    "pos": "1:1"
+                  },
+                  "index": {
+                    "node": "Int",
+                    "value": 0,
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "type": "array<int>",
+                  "pos": "1:1"
+                },
+                "index": {
+                  "node": "Int",
+                  "value": 1,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(array<array<int>>)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

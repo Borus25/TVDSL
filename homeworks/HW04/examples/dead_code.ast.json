@@ -1,0 +1,93 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "x"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "VarDecl",
+              "name": "unused",
+              "value": {
+                "node": "BinaryOp",
+                "op": "*",
+                "left": {
+                  "node": "Ident",
+                  "name": "x",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 5,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "annotation": "int",
+              "type": "int",
+              "pos": "1:1"
+            },
+            {
+              "node": "VarDecl",
+              "name": "unused2",
+              "value": {
+                "node": "UnaryOp",
+                "op": "-",
+                "operand": {
+                  "node": "Ident",
+                  "name": "x",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "annotation": "int",
+              "type": "int",
+              "pos": "1:1"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "Int",
+                "value": 7,
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

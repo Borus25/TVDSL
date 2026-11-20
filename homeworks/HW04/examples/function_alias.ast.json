@@ -1,0 +1,120 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "g",
+        "params": [
+          "x"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "BinaryOp",
+                "op": "+",
+                "left": {
+                  "node": "Ident",
+                  "name": "x",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 2,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->int",
+        "pos": "1:1"
+      },
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "x"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "VarDecl",
+              "name": "h",
+              "value": {
+                "node": "Ident",
+                "name": "g",
+                "type": "func(int)->int",
+                "pos": "1:1"
+              },
+              "annotation": null,
+              "type": "func(int)->int",
+              "pos": "1:1"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "Call",
+                "name": "h",
+                "args": [
+                  {
+                    "node": "Ident",
+                    "name": "x",
+                    "type": "int",
+                    "pos": "1:1"
+                  }
+                ],
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

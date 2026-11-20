@@ -1,0 +1,4 @@
+function f(a:array<int>, b:array<int>) returns r:bool
+{
+  r = (a == b);
+}

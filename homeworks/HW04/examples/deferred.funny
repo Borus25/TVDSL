@@ -1,0 +1,6 @@
+function f() returns r:int
+{
+  var x;
+  x = 4;
+  r = x;
+}

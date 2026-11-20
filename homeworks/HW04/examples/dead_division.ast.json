@@ -1,0 +1,70 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [],
+        "param_types": [],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "VarDecl",
+              "name": "dead",
+              "value": {
+                "node": "BinaryOp",
+                "op": "/",
+                "left": {
+                  "node": "Int",
+                  "value": 1,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 0,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "annotation": "int",
+              "type": "int",
+              "pos": "1:1"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "Int",
+                "value": 0,
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func()->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

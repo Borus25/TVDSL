@@ -1,0 +1,61 @@
+{
+  "f": {
+    "blocks": [
+      {
+        "id": 0,
+        "start": 0,
+        "end": 4,
+        "successors": [],
+        "reachable": true,
+        "live_in": [
+          "v1_x"
+        ],
+        "live_out": []
+      }
+    ],
+    "instruction_live_in": {
+      "3": [
+        "v2_r"
+      ],
+      "2": [
+        "t4"
+      ],
+      "1": [
+        "t3"
+      ],
+      "0": [
+        "v1_x"
+      ]
+    },
+    "instruction_live_out": {
+      "3": [],
+      "2": [
+        "v2_r"
+      ],
+      "1": [
+        "t4"
+      ],
+      "0": [
+        "t3"
+      ]
+    },
+    "graph": {
+      "t3": [],
+      "t4": [],
+      "v1_x": [],
+      "v2_r": []
+    },
+    "colors": {
+      "t3": 0,
+      "t4": 0,
+      "v1_x": 0,
+      "v2_r": 0
+    },
+    "color_count": 1,
+    "spills": [],
+    "temp_colors": {
+      "t3": 0,
+      "t4": 0
+    }
+  }
+}

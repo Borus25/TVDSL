@@ -1,0 +1,29 @@
+{
+  "optimizations": [
+    "const",
+    "algebraic",
+    "dce",
+    "cse"
+  ],
+  "metrics": {
+    "f": {
+      "before": {
+        "instructions": 13,
+        "labels": 3,
+        "temporaries": 4,
+        "blocks": 4,
+        "colors": 4,
+        "spill_candidates": 0
+      },
+      "after": {
+        "instructions": 13,
+        "labels": 3,
+        "temporaries": 4,
+        "blocks": 4,
+        "colors": 4,
+        "spill_candidates": 0
+      }
+    }
+  },
+  "verification": []
+}

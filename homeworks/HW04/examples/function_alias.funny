@@ -1,0 +1,10 @@
+function g(x:int) returns r:int
+{
+  r = (x + 2);
+}
+
+function f(x:int) returns r:int
+{
+  var h = g;
+  r = h(x);
+}

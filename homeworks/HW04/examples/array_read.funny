@@ -1,0 +1,4 @@
+function f(a:array<int>) returns r:int
+{
+  r = (a[0] + length(a));
+}

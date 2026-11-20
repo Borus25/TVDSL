@@ -1,0 +1,17 @@
+function f(v1_n) -> int:
+  v3_i = 0
+  v4_s = 0
+  L1:
+  t1 = v3_i >= 0
+  assert t1
+  t2 = v3_i < v1_n
+  if t2 goto L2 else L3
+  L2:
+  t3 = v4_s + v3_i
+  v4_s = t3
+  t4 = v3_i + 1
+  v3_i = t4
+  goto L1
+  L3:
+  v2_r = v4_s
+  return v2_r

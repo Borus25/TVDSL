@@ -1,0 +1,9 @@
+function f(x:int) returns r:int
+{
+  r = g(x);
+}
+
+function g(x:int) returns r:int
+{
+  r = (x + 2);
+}

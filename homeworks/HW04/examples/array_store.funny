@@ -1,0 +1,6 @@
+function f(a:array<int>) returns r:int
+{
+  var b:array<int> = a;
+  a[0] = 99;
+  r = (a[0] + b[0]);
+}

@@ -1,0 +1,81 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "a",
+          "b"
+        ],
+        "param_types": [
+          "bool",
+          "bool"
+        ],
+        "returns": "r",
+        "return_type": "bool",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "BinaryOp",
+                "op": "or",
+                "left": {
+                  "node": "BinaryOp",
+                  "op": "and",
+                  "left": {
+                    "node": "Ident",
+                    "name": "a",
+                    "type": "bool",
+                    "pos": "1:1"
+                  },
+                  "right": {
+                    "node": "Ident",
+                    "name": "b",
+                    "type": "bool",
+                    "pos": "1:1"
+                  },
+                  "type": "bool",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "UnaryOp",
+                  "op": "not",
+                  "operand": {
+                    "node": "Ident",
+                    "name": "a",
+                    "type": "bool",
+                    "pos": "1:1"
+                  },
+                  "type": "bool",
+                  "pos": "1:1"
+                },
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(bool,bool)->bool",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

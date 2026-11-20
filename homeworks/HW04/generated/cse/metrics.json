@@ -1,0 +1,20 @@
+{
+  "f": {
+    "before": {
+      "instructions": 7,
+      "labels": 0,
+      "temporaries": 3,
+      "blocks": 1,
+      "colors": 3,
+      "spill_candidates": 0
+    },
+    "after": {
+      "instructions": 7,
+      "labels": 0,
+      "temporaries": 3,
+      "blocks": 1,
+      "colors": 2,
+      "spill_candidates": 0
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "a"
+        ],
+        "param_types": [
+          "array<int>"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "ArrayIndex",
+                "base": {
+                  "node": "Ident",
+                  "name": "a",
+                  "type": "array<int>",
+                  "pos": "1:1"
+                },
+                "index": {
+                  "node": "UnaryOp",
+                  "op": "-",
+                  "operand": {
+                    "node": "Int",
+                    "value": 1,
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(array<int>)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

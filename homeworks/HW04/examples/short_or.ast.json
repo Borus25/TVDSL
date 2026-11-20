@@ -1,0 +1,81 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [],
+        "param_types": [],
+        "returns": "r",
+        "return_type": "bool",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "BinaryOp",
+                "op": "or",
+                "left": {
+                  "node": "Bool",
+                  "value": true,
+                  "type": "bool",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "BinaryOp",
+                  "op": ">",
+                  "left": {
+                    "node": "BinaryOp",
+                    "op": "/",
+                    "left": {
+                      "node": "Int",
+                      "value": 1,
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "right": {
+                      "node": "Int",
+                      "value": 0,
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "right": {
+                    "node": "Int",
+                    "value": 0,
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "type": "bool",
+                  "pos": "1:1"
+                },
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func()->bool",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

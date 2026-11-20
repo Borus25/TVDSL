@@ -1,0 +1,105 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "x"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "If",
+              "cond": {
+                "node": "BinaryOp",
+                "op": ">",
+                "left": {
+                  "node": "Ident",
+                  "name": "x",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 0,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "then": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Ident",
+                      "name": "x",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "else": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "UnaryOp",
+                      "op": "-",
+                      "operand": {
+                        "node": "Ident",
+                        "name": "x",
+                        "type": "int",
+                        "pos": "1:1"
+                      },
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

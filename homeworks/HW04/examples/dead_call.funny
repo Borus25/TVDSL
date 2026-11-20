@@ -1,0 +1,11 @@
+function g() returns r:int
+{
+  assert false;
+  r = 0;
+}
+
+function f() returns r:int
+{
+  var unused:int = g();
+  r = 1;
+}

@@ -1,0 +1,169 @@
+{
+  "format": "funny-ir/1",
+  "functions": [
+    {
+      "name": "f",
+      "params": [
+        "v1_n"
+      ],
+      "param_types": [
+        "int"
+      ],
+      "return_type": "int",
+      "types": {
+        "v1_n": "int",
+        "v2_r": "int",
+        "v3_i": "int",
+        "v4_s": "int",
+        "t1": "bool",
+        "t2": "bool",
+        "t3": "int",
+        "t4": "int"
+      },
+      "code": [
+        {
+          "op": "copy",
+          "dst": "v3_i",
+          "args": [
+            {
+              "const": 0
+            }
+          ]
+        },
+        {
+          "op": "copy",
+          "dst": "v4_s",
+          "args": [
+            {
+              "const": 0
+            }
+          ]
+        },
+        {
+          "op": "label",
+          "label": "L1"
+        },
+        {
+          "op": "bin",
+          "operator": ">=",
+          "dst": "t1",
+          "args": [
+            {
+              "var": "v3_i"
+            },
+            {
+              "const": 0
+            }
+          ]
+        },
+        {
+          "op": "assert",
+          "message": "invariant",
+          "args": [
+            {
+              "var": "t1"
+            }
+          ]
+        },
+        {
+          "op": "bin",
+          "operator": "<",
+          "dst": "t2",
+          "args": [
+            {
+              "var": "v3_i"
+            },
+            {
+              "var": "v1_n"
+            }
+          ]
+        },
+        {
+          "op": "branch",
+          "targets": [
+            "L2",
+            "L3"
+          ],
+          "args": [
+            {
+              "var": "t2"
+            }
+          ]
+        },
+        {
+          "op": "label",
+          "label": "L2"
+        },
+        {
+          "op": "bin",
+          "operator": "+",
+          "dst": "t3",
+          "args": [
+            {
+              "var": "v4_s"
+            },
+            {
+              "var": "v3_i"
+            }
+          ]
+        },
+        {
+          "op": "copy",
+          "dst": "v4_s",
+          "args": [
+            {
+              "var": "t3"
+            }
+          ]
+        },
+        {
+          "op": "bin",
+          "operator": "+",
+          "dst": "t4",
+          "args": [
+            {
+              "var": "v3_i"
+            },
+            {
+              "const": 1
+            }
+          ]
+        },
+        {
+          "op": "copy",
+          "dst": "v3_i",
+          "args": [
+            {
+              "var": "t4"
+            }
+          ]
+        },
+        {
+          "op": "jump",
+          "target": "L1"
+        },
+        {
+          "op": "label",
+          "label": "L3"
+        },
+        {
+          "op": "copy",
+          "dst": "v2_r",
+          "args": [
+            {
+              "var": "v4_s"
+            }
+          ]
+        },
+        {
+          "op": "return",
+          "args": [
+            {
+              "var": "v2_r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

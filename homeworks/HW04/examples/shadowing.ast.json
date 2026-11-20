@@ -1,0 +1,131 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "x"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "VarDecl",
+              "name": "y",
+              "value": {
+                "node": "Ident",
+                "name": "x",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "annotation": "int",
+              "type": "int",
+              "pos": "1:1"
+            },
+            {
+              "node": "Block",
+              "stmts": [
+                {
+                  "node": "VarDecl",
+                  "name": "x",
+                  "value": {
+                    "node": "Bool",
+                    "value": true,
+                    "type": "bool",
+                    "pos": "1:1"
+                  },
+                  "annotation": "bool",
+                  "type": "bool",
+                  "pos": "1:1"
+                },
+                {
+                  "node": "Assert",
+                  "expr": {
+                    "node": "Ident",
+                    "name": "x",
+                    "type": "bool",
+                    "pos": "1:1"
+                  },
+                  "pos": "1:1"
+                },
+                {
+                  "node": "Assign",
+                  "target": {
+                    "node": "Ident",
+                    "name": "y",
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "value": {
+                    "node": "BinaryOp",
+                    "op": "+",
+                    "left": {
+                      "node": "Ident",
+                      "name": "y",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "right": {
+                      "node": "Int",
+                      "value": 1,
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "type": "int",
+                    "pos": "1:1"
+                  },
+                  "pos": "1:1"
+                }
+              ],
+              "pos": "1:1"
+            },
+            {
+              "node": "Assign",
+              "target": {
+                "node": "Ident",
+                "name": "r",
+                "type": "int",
+                "pos": "1:1"
+              },
+              "value": {
+                "node": "BinaryOp",
+                "op": "+",
+                "left": {
+                  "node": "Ident",
+                  "name": "y",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Ident",
+                  "name": "x",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "int",
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

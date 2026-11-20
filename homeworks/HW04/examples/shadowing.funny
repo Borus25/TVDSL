@@ -1,0 +1,10 @@
+function f(x:int) returns r:int
+{
+  var y:int = x;
+  {
+    var x:bool = true;
+    assert x;
+    y = (y + 1);
+  }
+  r = (y + x);
+}

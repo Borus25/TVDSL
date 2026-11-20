@@ -1,0 +1,37 @@
+[
+  {
+    "function": "f",
+    "args": [
+      -7
+    ],
+    "expected": 5
+  },
+  {
+    "function": "f",
+    "args": [
+      0
+    ],
+    "expected": 12
+  },
+  {
+    "function": "f",
+    "args": [
+      1
+    ],
+    "expected": 13
+  },
+  {
+    "function": "f",
+    "args": [
+      5
+    ],
+    "expected": 17
+  },
+  {
+    "function": "f",
+    "args": [
+      100
+    ],
+    "expected": 112
+  }
+]

@@ -1,0 +1,4 @@
+function f(a:bool, b:bool) returns r:bool
+{
+  r = ((a and b) or (not a));
+}

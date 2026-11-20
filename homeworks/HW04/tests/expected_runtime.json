@@ -1,0 +1,710 @@
+[
+  {
+    "name": "constants",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          -7
+        ],
+        "expected": 5
+      },
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "expected": 12
+      },
+      {
+        "function": "f",
+        "args": [
+          1
+        ],
+        "expected": 13
+      },
+      {
+        "function": "f",
+        "args": [
+          100
+        ],
+        "expected": 112
+      }
+    ]
+  },
+  {
+    "name": "branch",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          -3
+        ],
+        "expected": 3
+      },
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "expected": 0
+      },
+      {
+        "function": "f",
+        "args": [
+          7
+        ],
+        "expected": 7
+      }
+    ]
+  },
+  {
+    "name": "loop_sum",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "expected": 0
+      },
+      {
+        "function": "f",
+        "args": [
+          1
+        ],
+        "expected": 0
+      },
+      {
+        "function": "f",
+        "args": [
+          5
+        ],
+        "expected": 10
+      },
+      {
+        "function": "f",
+        "args": [
+          10
+        ],
+        "expected": 45
+      }
+    ]
+  },
+  {
+    "name": "recursion",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "expected": 1
+      },
+      {
+        "function": "f",
+        "args": [
+          1
+        ],
+        "expected": 1
+      },
+      {
+        "function": "f",
+        "args": [
+          5
+        ],
+        "expected": 120
+      },
+      {
+        "function": "f",
+        "args": [
+          7
+        ],
+        "expected": 5040
+      }
+    ]
+  },
+  {
+    "name": "forward_call",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "expected": 2
+      },
+      {
+        "function": "f",
+        "args": [
+          -3
+        ],
+        "expected": -1
+      }
+    ]
+  },
+  {
+    "name": "mutual_recursion",
+    "tests": [
+      {
+        "function": "even",
+        "args": [
+          0
+        ],
+        "expected": true
+      },
+      {
+        "function": "even",
+        "args": [
+          1
+        ],
+        "expected": false
+      },
+      {
+        "function": "even",
+        "args": [
+          2
+        ],
+        "expected": true
+      },
+      {
+        "function": "even",
+        "args": [
+          3
+        ],
+        "expected": false
+      },
+      {
+        "function": "even",
+        "args": [
+          4
+        ],
+        "expected": true
+      },
+      {
+        "function": "even",
+        "args": [
+          5
+        ],
+        "expected": false
+      },
+      {
+        "function": "even",
+        "args": [
+          6
+        ],
+        "expected": true
+      }
+    ]
+  },
+  {
+    "name": "shadowing",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          2
+        ],
+        "expected": 5
+      },
+      {
+        "function": "f",
+        "args": [
+          -1
+        ],
+        "expected": -1
+      }
+    ]
+  },
+  {
+    "name": "initializer_shadow",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "expected": 2
+      }
+    ]
+  },
+  {
+    "name": "deferred",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "expected": 4
+      }
+    ]
+  },
+  {
+    "name": "redefinition",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          4
+        ],
+        "expected": 7
+      },
+      {
+        "function": "f",
+        "args": [
+          -3
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  {
+    "name": "cse",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          2,
+          3
+        ],
+        "expected": 25
+      },
+      {
+        "function": "f",
+        "args": [
+          -2,
+          3
+        ],
+        "expected": 1
+      }
+    ]
+  },
+  {
+    "name": "cse_kill",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          3
+        ],
+        "expected": 10
+      },
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "expected": 4
+      }
+    ]
+  },
+  {
+    "name": "identities",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          -5
+        ],
+        "expected": -5
+      },
+      {
+        "function": "f",
+        "args": [
+          3
+        ],
+        "expected": 3
+      }
+    ]
+  },
+  {
+    "name": "array_read",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            4,
+            5
+          ]
+        ],
+        "expected": 6
+      },
+      {
+        "function": "f",
+        "args": [
+          []
+        ],
+        "error": "IndexError"
+      }
+    ]
+  },
+  {
+    "name": "array_store",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            1,
+            2
+          ]
+        ],
+        "expected": 100
+      },
+      {
+        "function": "f",
+        "args": [
+          []
+        ],
+        "error": "IndexError"
+      }
+    ]
+  },
+  {
+    "name": "nested_array_store",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        ],
+        "expected": 9
+      }
+    ]
+  },
+  {
+    "name": "store_call",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            1,
+            2
+          ]
+        ],
+        "expected": [
+          7,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "name": "negative_index",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            1
+          ]
+        ],
+        "error": "IndexError"
+      }
+    ]
+  },
+  {
+    "name": "division",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          -5
+        ],
+        "expected": -2
+      },
+      {
+        "function": "f",
+        "args": [
+          5
+        ],
+        "expected": 2
+      },
+      {
+        "function": "f",
+        "args": [
+          100000000000000000000000000000000000000000000000000
+        ],
+        "expected": 50000000000000000000000000000000000000000000000000
+      }
+    ]
+  },
+  {
+    "name": "dead_division",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "error": "ZeroDivisionError"
+      }
+    ]
+  },
+  {
+    "name": "dead_load",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            1
+          ]
+        ],
+        "error": "IndexError"
+      }
+    ]
+  },
+  {
+    "name": "short_and",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "expected": false
+      }
+    ]
+  },
+  {
+    "name": "short_or",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "expected": true
+      }
+    ]
+  },
+  {
+    "name": "short_rhs_executed",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "error": "ZeroDivisionError"
+      }
+    ]
+  },
+  {
+    "name": "checks",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          2
+        ],
+        "expected": 2
+      },
+      {
+        "function": "f",
+        "args": [
+          -1
+        ],
+        "error": "AssertionError"
+      },
+      {
+        "function": "f",
+        "args": [
+          11
+        ],
+        "error": "AssumptionFailed"
+      }
+    ]
+  },
+  {
+    "name": "contracts",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          1
+        ],
+        "expected": 2
+      },
+      {
+        "function": "f",
+        "args": [
+          0
+        ],
+        "error": "AssumptionFailed"
+      }
+    ]
+  },
+  {
+    "name": "invariant_failure",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "error": "AssertionError"
+      }
+    ]
+  },
+  {
+    "name": "function_alias",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          3
+        ],
+        "expected": 5
+      }
+    ]
+  },
+  {
+    "name": "dead_call",
+    "tests": [
+      {
+        "function": "f",
+        "args": [],
+        "error": "AssertionError"
+      }
+    ]
+  },
+  {
+    "name": "branch_live_out",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          true
+        ],
+        "expected": 4
+      },
+      {
+        "function": "f",
+        "args": [
+          false
+        ],
+        "expected": 6
+      }
+    ]
+  },
+  {
+    "name": "loop_live_out",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          5
+        ],
+        "expected": 5
+      },
+      {
+        "function": "f",
+        "args": [
+          -1
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  {
+    "name": "nested_short_circuit",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          false,
+          false
+        ],
+        "expected": true
+      },
+      {
+        "function": "f",
+        "args": [
+          false,
+          true
+        ],
+        "expected": true
+      },
+      {
+        "function": "f",
+        "args": [
+          true,
+          false
+        ],
+        "expected": false
+      },
+      {
+        "function": "f",
+        "args": [
+          true,
+          true
+        ],
+        "expected": true
+      }
+    ]
+  },
+  {
+    "name": "array_bool",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            true
+          ]
+        ],
+        "expected": true
+      },
+      {
+        "function": "f",
+        "args": [
+          [
+            false
+          ]
+        ],
+        "expected": false
+      }
+    ]
+  },
+  {
+    "name": "array_equality",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ],
+        "expected": true
+      },
+      {
+        "function": "f",
+        "args": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "expected": false
+      }
+    ]
+  },
+  {
+    "name": "dead_code",
+    "tests": [
+      {
+        "function": "f",
+        "args": [
+          5
+        ],
+        "expected": 7
+      }
+    ]
+  }
+]

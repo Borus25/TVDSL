@@ -1,0 +1,131 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "f",
+        "params": [
+          "n"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "int",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "If",
+              "cond": {
+                "node": "BinaryOp",
+                "op": "<=",
+                "left": {
+                  "node": "Ident",
+                  "name": "n",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 1,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "then": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Int",
+                      "value": 1,
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "else": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "BinaryOp",
+                      "op": "*",
+                      "left": {
+                        "node": "Ident",
+                        "name": "n",
+                        "type": "int",
+                        "pos": "1:1"
+                      },
+                      "right": {
+                        "node": "Call",
+                        "name": "f",
+                        "args": [
+                          {
+                            "node": "BinaryOp",
+                            "op": "-",
+                            "left": {
+                              "node": "Ident",
+                              "name": "n",
+                              "type": "int",
+                              "pos": "1:1"
+                            },
+                            "right": {
+                              "node": "Int",
+                              "value": 1,
+                              "type": "int",
+                              "pos": "1:1"
+                            },
+                            "type": "int",
+                            "pos": "1:1"
+                          }
+                        ],
+                        "type": "int",
+                        "pos": "1:1"
+                      },
+                      "type": "int",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->int",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

@@ -1,0 +1,4 @@
+digraph CFG {
+  node [shape=box];
+  B0 [label="B0\nt1 = load v1_a, 0\nt2 = call &store(t1, 1, 9)\nt3 = call &store(v1_a, 0, t2)\nv1_a = t3\nt4 = load v1_a, 0\nt5 = load t4, 1\nv2_r = t5\nreturn v2_r"];
+}

@@ -1,0 +1,8 @@
+function f() returns r:int
+{
+  var x:int = 1;
+  {
+    var x:int = (x + 1);
+    r = x;
+  }
+}

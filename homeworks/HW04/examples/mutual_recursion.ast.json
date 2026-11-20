@@ -1,0 +1,227 @@
+{
+  "format": "funny-typed-ast/1",
+  "ok": true,
+  "ast": {
+    "node": "Program",
+    "functions": [
+      {
+        "node": "Function",
+        "name": "even",
+        "params": [
+          "n"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "bool",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "If",
+              "cond": {
+                "node": "BinaryOp",
+                "op": "==",
+                "left": {
+                  "node": "Ident",
+                  "name": "n",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 0,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "then": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Bool",
+                      "value": true,
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "else": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Call",
+                      "name": "odd",
+                      "args": [
+                        {
+                          "node": "BinaryOp",
+                          "op": "-",
+                          "left": {
+                            "node": "Ident",
+                            "name": "n",
+                            "type": "int",
+                            "pos": "1:1"
+                          },
+                          "right": {
+                            "node": "Int",
+                            "value": 1,
+                            "type": "int",
+                            "pos": "1:1"
+                          },
+                          "type": "int",
+                          "pos": "1:1"
+                        }
+                      ],
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->bool",
+        "pos": "1:1"
+      },
+      {
+        "node": "Function",
+        "name": "odd",
+        "params": [
+          "n"
+        ],
+        "param_types": [
+          "int"
+        ],
+        "returns": "r",
+        "return_type": "bool",
+        "requires": null,
+        "ensures": null,
+        "body": {
+          "node": "Block",
+          "stmts": [
+            {
+              "node": "If",
+              "cond": {
+                "node": "BinaryOp",
+                "op": "==",
+                "left": {
+                  "node": "Ident",
+                  "name": "n",
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "right": {
+                  "node": "Int",
+                  "value": 0,
+                  "type": "int",
+                  "pos": "1:1"
+                },
+                "type": "bool",
+                "pos": "1:1"
+              },
+              "then": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Bool",
+                      "value": false,
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "else": {
+                "node": "Block",
+                "stmts": [
+                  {
+                    "node": "Assign",
+                    "target": {
+                      "node": "Ident",
+                      "name": "r",
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "value": {
+                      "node": "Call",
+                      "name": "even",
+                      "args": [
+                        {
+                          "node": "BinaryOp",
+                          "op": "-",
+                          "left": {
+                            "node": "Ident",
+                            "name": "n",
+                            "type": "int",
+                            "pos": "1:1"
+                          },
+                          "right": {
+                            "node": "Int",
+                            "value": 1,
+                            "type": "int",
+                            "pos": "1:1"
+                          },
+                          "type": "int",
+                          "pos": "1:1"
+                        }
+                      ],
+                      "type": "bool",
+                      "pos": "1:1"
+                    },
+                    "pos": "1:1"
+                  }
+                ],
+                "pos": "1:1"
+              },
+              "pos": "1:1"
+            }
+          ],
+          "pos": "1:1"
+        },
+        "type": "func(int)->bool",
+        "pos": "1:1"
+      }
+    ],
+    "pos": "1:1"
+  },
+  "diagnostics": []
+}

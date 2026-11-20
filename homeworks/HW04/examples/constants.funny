@@ -1,0 +1,6 @@
+function f(x:int) returns r:int
+{
+  var a:int = (2 * 3);
+  var b:int = (a * 1);
+  r = ((x + a) + b);
+}

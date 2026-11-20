@@ -1,0 +1,5 @@
+function f() returns r:int
+{
+  var dead:int = (1 / 0);
+  r = 0;
+}

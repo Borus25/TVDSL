@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/Borus25/TVDSL",
+  "branch": "HW01",
+  "commit": "df309682de33a5cfe9a2d5b716e6968ac1be62b4",
+  "hw3_files_modified": false,
+  "hw3_frontend_local_execution": "not_run",
+  "tested_repository_ast": "homeworks/HW03/tests/expected/pos_types_ok.json",
+  "reference_blob_sha": "607135c168a28673c1543c425c5fa9c90206d193"
+}

@@ -1,0 +1,55 @@
+{
+  "unit_tests": 36,
+  "unit_failures": 0,
+  "unit_errors": 0,
+  "typed_fixture_programs": 35,
+  "pass_combinations": 16,
+  "runtime_cases_per_combination": 72,
+  "differential_checks": 1152,
+  "random_integer_checks": 700,
+  "real_hw3_integration": {
+    "status": "not_run",
+    "reason": "Use --hw3-dir to enable in your repository"
+  }
+}
+test_ast_cli_creates_all_artifacts (test_ir.CLITests.test_ast_cli_creates_all_artifacts) ... ok
+test_cli_defaults_no_opt (test_ir.CLITests.test_cli_defaults_no_opt) ... ok
+test_cli_negative (test_ir.CLITests.test_cli_negative) ... ok
+test_missing_frontend_explained (test_ir.CLITests.test_missing_frontend_explained) ... ok
+test_subprocess_bridge_contract (test_ir.CLITests.test_subprocess_bridge_contract) ... ok
+test_actual_hw3_golden_ast (test_ir.PipelineTests.test_actual_hw3_golden_ast) ... ok
+test_all_fixtures_all_pass_combinations (test_ir.PipelineTests.test_all_fixtures_all_pass_combinations) ... ok
+test_cfg_and_liveness_fixed_point (test_ir.PipelineTests.test_cfg_and_liveness_fixed_point) ... ok
+test_cse_reduces_repeated_computations (test_ir.PipelineTests.test_cse_reduces_repeated_computations) ... ok
+test_function_scopes_unique (test_ir.PipelineTests.test_function_scopes_unique) ... ok
+test_functional_array_does_not_mutate_arguments (test_ir.PipelineTests.test_functional_array_does_not_mutate_arguments) ... ok
+test_graph_exports (test_ir.PipelineTests.test_graph_exports) ... ok
+test_greedy_coloring_valid_every_fixture (test_ir.PipelineTests.test_greedy_coloring_valid_every_fixture) ... ok
+test_json_ir_roundtrip (test_ir.PipelineTests.test_json_ir_roundtrip) ... ok
+test_labels_globally_unique (test_ir.PipelineTests.test_labels_globally_unique) ... ok
+test_metrics_reduce_demo (test_ir.PipelineTests.test_metrics_reduce_demo) ... ok
+test_no_opt_is_identity (test_ir.PipelineTests.test_no_opt_is_identity) ... ok
+test_optimizations_do_not_mutate_input (test_ir.PipelineTests.test_optimizations_do_not_mutate_input) ... ok
+test_optimizer_idempotent (test_ir.PipelineTests.test_optimizer_idempotent) ... ok
+test_parameters_interfere_at_entry (test_ir.PipelineTests.test_parameters_interfere_at_entry) ... ok
+test_passes_independently_have_effect (test_ir.PipelineTests.test_passes_independently_have_effect) ... ok
+test_preserve_trapping_dead_operations (test_ir.PipelineTests.test_preserve_trapping_dead_operations) ... ok
+test_short_circuit_has_branches (test_ir.PipelineTests.test_short_circuit_has_branches) ... ok
+test_cfg_fallthrough_and_return (test_ir.SafetyTests.test_cfg_fallthrough_and_return) ... ok
+test_cfg_unknown_target (test_ir.SafetyTests.test_cfg_unknown_target) ... ok
+test_cse_redefinition_direct_ir (test_ir.SafetyTests.test_cse_redefinition_direct_ir) ... ok
+test_integer_division_not_python_float (test_ir.SafetyTests.test_integer_division_not_python_float) ... ok
+test_interpreter_budget (test_ir.SafetyTests.test_interpreter_budget) ... ok
+test_randomized_integer_inputs (test_ir.SafetyTests.test_randomized_integer_inputs) ... ok
+test_reject_error_envelope (test_ir.SafetyTests.test_reject_error_envelope) ... ok
+test_reject_poisoned_type (test_ir.SafetyTests.test_reject_poisoned_type) ... ok
+test_reject_unknown_ast (test_ir.SafetyTests.test_reject_unknown_ast) ... ok
+test_reject_unknown_pass (test_ir.SafetyTests.test_reject_unknown_pass) ... ok
+test_reject_untyped_expression (test_ir.SafetyTests.test_reject_untyped_expression) ... ok
+test_runtime_arguments_are_typed (test_ir.SafetyTests.test_runtime_arguments_are_typed) ... ok
+test_unreachable_blocks_marked (test_ir.SafetyTests.test_unreachable_blocks_marked) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.407s
+
+OK
