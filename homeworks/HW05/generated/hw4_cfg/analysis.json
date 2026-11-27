@@ -1,0 +1,101 @@
+{
+  "engine": "python_explicit",
+  "abstraction": "CONTROL_FLOW_ONLY_NOT_PROGRAM_MODEL_CHECKING",
+  "hw4_cfg_source": {
+    "source": "bundled verbatim HW4 cfg()",
+    "upstream_blob": "daa0105178dd8c6998860a86d3576d3261e4a045"
+  },
+  "blocks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 2,
+      "successors": [
+        1
+      ],
+      "reachable": true
+    },
+    {
+      "id": 1,
+      "start": 2,
+      "end": 7,
+      "successors": [
+        2,
+        3
+      ],
+      "reachable": true
+    },
+    {
+      "id": 2,
+      "start": 7,
+      "end": 13,
+      "successors": [
+        1
+      ],
+      "reachable": true
+    },
+    {
+      "id": 3,
+      "start": 13,
+      "end": 16,
+      "successors": [],
+      "reachable": true
+    }
+  ],
+  "results": [
+    {
+      "id": "cfg_exit_possible",
+      "logic": "CTL",
+      "formula": "EF done",
+      "holds": true,
+      "satisfaction_set": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    {
+      "id": "cfg_exit_inevitable",
+      "logic": "CTL",
+      "formula": "AF done",
+      "holds": false,
+      "satisfaction_set": [
+        "b3"
+      ]
+    },
+    {
+      "id": "cfg_exit_stable",
+      "logic": "CTL",
+      "formula": "AG (done -> AX done)",
+      "holds": true,
+      "satisfaction_set": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    }
+  ],
+  "exit_path_in_abstraction": [
+    "b0",
+    "b1",
+    "b3"
+  ],
+  "nontermination_path_in_abstraction": {
+    "prefix": [
+      "b0",
+      "b1"
+    ],
+    "cycle": [
+      "b1",
+      "b2",
+      "b1"
+    ]
+  },
+  "limitations": [
+    "Branch guards are nondeterministic; calls, arithmetic and exceptions are erased.",
+    "Paths may be infeasible for concrete data. No concrete termination/correctness claim.",
+    "One step is one basic block; done denotes arrival at a return block, not its execution."
+  ]
+}

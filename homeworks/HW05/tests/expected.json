@@ -1,0 +1,52 @@
+{
+  "property_ids": [
+    "p01_no_error",
+    "p02_no_overlap",
+    "p03_ack_to_idle",
+    "p04_response",
+    "p05_recurring_ack",
+    "p06_error_reachable"
+  ],
+  "verdicts": {
+    "original": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+    ],
+    "fixed": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "error_transition": [
+      false,
+      true,
+      true,
+      false,
+      false,
+      true
+    ],
+    "overlap_labels": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "bad_ack_successor": [
+      true,
+      true,
+      false,
+      true,
+      true,
+      false
+    ]
+  }
+}

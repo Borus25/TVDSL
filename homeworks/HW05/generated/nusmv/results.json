@@ -1,0 +1,7 @@
+{
+  "status": "not_run",
+  "reason": "NuSMV/nuXmv executable not installed or not found",
+  "binary_requested": null,
+  "results": [],
+  "note": "Python results are separate and are NOT NuSMV results."
+}

@@ -1,0 +1,29 @@
+{
+  "name": "hw4_control_flow",
+  "initial": "b0",
+  "transitions": {
+    "b0": [
+      "b1"
+    ],
+    "b1": [
+      "b2",
+      "b3"
+    ],
+    "b2": [
+      "b1"
+    ],
+    "b3": [
+      "b3"
+    ]
+  },
+  "labels": {
+    "b0": [],
+    "b1": [],
+    "b2": [],
+    "b3": [
+      "done"
+    ]
+  },
+  "fairness": [],
+  "description": "Control-only overapproximation; guards/data/calls/exceptions erased; return-block is absorbing"
+}

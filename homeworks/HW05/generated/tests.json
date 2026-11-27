@@ -1,0 +1,14 @@
+{
+  "unit_tests": 35,
+  "failures": 0,
+  "errors": 0,
+  "protocol_models": 5,
+  "protocol_properties": 6,
+  "protocol_verdicts": 30,
+  "exhaustive_total_graph_and_labelling_cases": 2744,
+  "external_HW4_module": {
+    "status": "not_run",
+    "reason": "Optional --hw4-dir not supplied; bundled actual HW4 cfg() and real IR fixture ARE tested"
+  },
+  "NuSMV": "Not implied by tests. See generated/nusmv/results.json."
+}

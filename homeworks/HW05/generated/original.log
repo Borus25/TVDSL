@@ -1,0 +1,16 @@
+Model: original
+Engine: Python explicit-state (NOT NuSMV)
+Reachable: s0, s1, s2
+
+p01_no_error: True | AG (!error)
+{"kind": "satisfaction_set_proof", "initial_in_satisfaction_set": true}
+p02_no_overlap: True | G (!(req & ack))
+{"kind": "satisfaction_set_proof", "initial_in_satisfaction_set": true}
+p03_ack_to_idle: True | G (ack -> X idle)
+{"kind": "satisfaction_set_proof", "initial_in_satisfaction_set": true}
+p04_response: False | G (req -> F ack)
+{"kind": "lasso_counterexample", "prefix": ["s0", "s1"], "cycle": ["s1", "s1"], "unanswered_request_at": 1}
+p05_recurring_ack: False | G F ack
+{"kind": "lasso_counterexample", "prefix": ["s0", "s1"], "cycle": ["s1", "s1"]}
+p06_error_reachable: False | EF error
+{"kind": "absence_certificate", "reachable": ["s0", "s1", "s2"], "error_states": ["s3"], "satisfaction_EF_error": ["s3"], "closed_under_successors": true, "explanation": "Reachable closure contains no error; initial is not in EF(error). A single failed path would not suffice."}

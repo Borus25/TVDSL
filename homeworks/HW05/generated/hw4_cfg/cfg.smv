@@ -1,0 +1,24 @@
+-- Generated from an explicit graph; no FAIRNESS/INVAR constraints.
+-- Expected-false specifications are intentional diagnostic queries.
+MODULE main
+VAR
+  state : {b0, b1, b2, b3};
+ASSIGN
+  init(state) := b0;
+  next(state) := case
+    state = b0 : b1;
+    state = b1 : {b2, b3};
+    state = b2 : b1;
+    state = b3 : b3;
+    TRUE : state;
+  esac;
+DEFINE
+  ack := FALSE;
+  done := (state = b3);
+  error := FALSE;
+  idle := FALSE;
+  req := FALSE;
+
+CTLSPEC NAME cfg_exit_possible := EF done;
+CTLSPEC NAME cfg_exit_inevitable := AF done;
+CTLSPEC NAME cfg_exit_stable := AG (done -> AX done);

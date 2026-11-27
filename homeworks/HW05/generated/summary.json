@@ -1,0 +1,109 @@
+{
+  "engine": "python_explicit_exact_for_supported_templates",
+  "model_count": 5,
+  "property_count": 6,
+  "verdicts_checked": 30,
+  "results": [
+    {
+      "model": "original",
+      "expected": [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "actual": [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "model": "fixed",
+      "expected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "model": "error_transition",
+      "expected": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "actual": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "model": "overlap_labels",
+      "expected": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "model": "bad_ack_successor",
+      "expected": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "actual": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "passed": true
+    }
+  ],
+  "nusmv_execution": "See generated/nusmv/results.json; not implied by Python success"
+}

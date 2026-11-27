@@ -1,0 +1,26 @@
+-- Generated from an explicit graph; no FAIRNESS/INVAR constraints.
+-- Expected-false specifications are intentional diagnostic queries.
+MODULE main
+VAR
+  state : {s0, s1, s2, s3};
+ASSIGN
+  init(state) := s0;
+  next(state) := case
+    state = s0 : s1;
+    state = s1 : s2;
+    state = s2 : s0;
+    state = s3 : s3;
+    TRUE : state;
+  esac;
+DEFINE
+  ack := (state = s2);
+  error := (state = s3);
+  idle := (state = s0);
+  req := (state = s1);
+
+CTLSPEC NAME p01_no_error := AG (!error);
+LTLSPEC NAME p02_no_overlap := G (!(req & ack));
+LTLSPEC NAME p03_ack_to_idle := G (ack -> X idle);
+LTLSPEC NAME p04_response := G (req -> F ack);
+LTLSPEC NAME p05_recurring_ack := G F ack;
+CTLSPEC NAME p06_error_reachable := EF error;

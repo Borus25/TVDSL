@@ -1,0 +1,40 @@
+test_all_total_three_state_graphs_all_p_labellings (test_mc.CTLTests.test_all_total_three_state_graphs_all_p_labellings) ... ok
+test_booleans_and_unsupported_operator (test_mc.CTLTests.test_booleans_and_unsupported_operator) ... ok
+test_reject_deadlock_and_unknown_state (test_mc.CTLTests.test_reject_deadlock_and_unknown_state) ... ok
+test_reject_empty_and_invalid_initial (test_mc.CTLTests.test_reject_empty_and_invalid_initial) ... ok
+test_reject_silent_fairness_approximation (test_mc.CTLTests.test_reject_silent_fairness_approximation) ... ok
+test_template_ltl_against_independent_lasso_enumeration (test_mc.CTLTests.test_template_ltl_against_independent_lasso_enumeration) ... ok
+test_until_operators (test_mc.CTLTests.test_until_operators) ... ok
+test_SMV_fixed_keeps_unreachable_error (test_mc.ExportTests.test_SMV_fixed_keeps_unreachable_error) ... ok
+test_external_hw4_module_loading (test_mc.ExportTests.test_external_hw4_module_loading) ... ok
+test_generated_SMV_transition_table_matches_original (test_mc.ExportTests.test_generated_SMV_transition_table_matches_original) ... ok
+test_hw4_export_files_and_lasso (test_mc.ExportTests.test_hw4_export_files_and_lasso) ... ok
+test_invalid_hw4_input_rejected (test_mc.ExportTests.test_invalid_hw4_input_rejected) ... ok
+test_non_return_dead_end_not_called_done (test_mc.ExportTests.test_non_return_dead_end_not_called_done) ... ok
+test_real_hw4_loop_IR_CFG_reused (test_mc.ExportTests.test_real_hw4_loop_IR_CFG_reused) ... ok
+test_return_stuttering_totalization (test_mc.ExportTests.test_return_stuttering_totalization) ... ok
+test_unsafe_identifier_rejected (test_mc.ExportTests.test_unsafe_identifier_rejected) ... ok
+test_AF_ack_iterations_original_and_fixed (test_mc.ProtocolTests.test_AF_ack_iterations_original_and_fixed) ... ok
+test_AG_error_complement (test_mc.ProtocolTests.test_AG_error_complement) ... ok
+test_EF_ack_iterations_original (test_mc.ProtocolTests.test_EF_ack_iterations_original) ... ok
+test_EF_false_requires_absence_certificate (test_mc.ProtocolTests.test_EF_false_requires_absence_certificate) ... ok
+test_EF_true_has_positive_witness (test_mc.ProtocolTests.test_EF_true_has_positive_witness) ... ok
+test_all_finite_and_infinite_traces_valid (test_mc.ProtocolTests.test_all_finite_and_infinite_traces_valid) ... ok
+test_all_thirty_expected_verdicts (test_mc.ProtocolTests.test_all_thirty_expected_verdicts) ... ok
+test_fix_changes_exactly_one_transition (test_mc.ProtocolTests.test_fix_changes_exactly_one_transition) ... ok
+test_mutations_exercise_every_safety_property (test_mc.ProtocolTests.test_mutations_exercise_every_safety_property) ... ok
+test_original_is_exact_P09_graph (test_mc.ProtocolTests.test_original_is_exact_P09_graph) ... ok
+test_original_minimal_response_lasso (test_mc.ProtocolTests.test_original_minimal_response_lasso) ... ok
+test_reachable_original_and_fixed (test_mc.ProtocolTests.test_reachable_original_and_fixed) ... ok
+test_safety_and_liveness_separated (test_mc.ProtocolTests.test_safety_and_liveness_separated) ... ok
+test_build_CLI (test_mc.RunnerTests.test_build_CLI) ... ok
+test_external_runner_missing_exit_code (test_mc.RunnerTests.test_external_runner_missing_exit_code) ... ok
+test_missing_tool_is_never_a_successful_tool_run (test_mc.RunnerTests.test_missing_tool_is_never_a_successful_tool_run) ... ok
+test_parse_NuSMV_true_and_false (test_mc.RunnerTests.test_parse_NuSMV_true_and_false) ... ok
+test_reject_missing_or_ambiguous_verdict (test_mc.RunnerTests.test_reject_missing_or_ambiguous_verdict) ... ok
+test_shortest_path_and_closed_lasso_helpers (test_mc.RunnerTests.test_shortest_path_and_closed_lasso_helpers) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.400s
+
+OK

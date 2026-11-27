@@ -1,0 +1,191 @@
+{
+  "engine": "python_explicit_exact_for_supported_templates",
+  "model": "error_transition",
+  "states_total": 4,
+  "states_reachable": [
+    "s0",
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "fairness": [],
+  "results": [
+    {
+      "id": "p01_no_error",
+      "category": "safety",
+      "logic": "CTL",
+      "formula": "AG (!error)",
+      "description": "Ошибка никогда не достигается.",
+      "holds": false,
+      "satisfaction_set": [],
+      "evidence": {
+        "kind": "finite_counterexample",
+        "path": [
+          "s0",
+          "s1",
+          "s3"
+        ]
+      }
+    },
+    {
+      "id": "p02_no_overlap",
+      "category": "safety",
+      "logic": "LTL",
+      "formula": "G (!(req & ack))",
+      "description": "Запрос и подтверждение не активны одновременно.",
+      "holds": true,
+      "satisfaction_set": [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "evidence": {
+        "kind": "satisfaction_set_proof",
+        "initial_in_satisfaction_set": true
+      }
+    },
+    {
+      "id": "p03_ack_to_idle",
+      "category": "safety",
+      "logic": "LTL",
+      "formula": "G (ack -> X idle)",
+      "description": "После подтверждения следующим состоянием является idle.",
+      "holds": true,
+      "satisfaction_set": [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "evidence": {
+        "kind": "satisfaction_set_proof",
+        "initial_in_satisfaction_set": true
+      }
+    },
+    {
+      "id": "p04_response",
+      "category": "liveness",
+      "logic": "LTL",
+      "formula": "G (req -> F ack)",
+      "description": "Каждый запрос когда-нибудь получает подтверждение.",
+      "holds": false,
+      "satisfaction_set": [
+        "s3"
+      ],
+      "evidence": {
+        "kind": "lasso_counterexample",
+        "prefix": [
+          "s0",
+          "s1"
+        ],
+        "cycle": [
+          "s1",
+          "s1"
+        ],
+        "unanswered_request_at": 1
+      }
+    },
+    {
+      "id": "p05_recurring_ack",
+      "category": "liveness",
+      "logic": "LTL",
+      "formula": "G F ack",
+      "description": "Подтверждения происходят бесконечно часто.",
+      "holds": false,
+      "satisfaction_set": [],
+      "evidence": {
+        "kind": "lasso_counterexample",
+        "prefix": [
+          "s0",
+          "s1"
+        ],
+        "cycle": [
+          "s1",
+          "s1"
+        ]
+      }
+    },
+    {
+      "id": "p06_error_reachable",
+      "category": "existential_reachability",
+      "logic": "CTL",
+      "formula": "EF error",
+      "description": "Существует путь к ошибке: диагностический запрос, его ложность ожидаема в исправной модели.",
+      "holds": true,
+      "satisfaction_set": [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "evidence": {
+        "kind": "existential_witness",
+        "path": [
+          "s0",
+          "s1",
+          "s3"
+        ]
+      }
+    }
+  ],
+  "iterations": {
+    "EF_ack": [
+      [
+        "s2"
+      ],
+      [
+        "s1",
+        "s2"
+      ],
+      [
+        "s0",
+        "s1",
+        "s2"
+      ]
+    ],
+    "AF_ack": [
+      [
+        "s2"
+      ]
+    ],
+    "EF_error": [
+      [
+        "s3"
+      ],
+      [
+        "s1",
+        "s3"
+      ],
+      [
+        "s0",
+        "s1",
+        "s3"
+      ],
+      [
+        "s0",
+        "s1",
+        "s2",
+        "s3"
+      ]
+    ]
+  },
+  "sets": {
+    "EF_ack": [
+      "s0",
+      "s1",
+      "s2"
+    ],
+    "AF_ack": [
+      "s2"
+    ],
+    "EF_error": [
+      "s0",
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "AG_not_error": []
+  },
+  "tool_execution": "This report is NOT a NuSMV log"
+}

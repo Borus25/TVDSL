@@ -1,0 +1,16 @@
+Model: overlap_labels
+Engine: Python explicit-state (NOT NuSMV)
+Reachable: s0, s1, s2, s3
+
+p01_no_error: False | AG (!error)
+{"kind": "finite_counterexample", "path": ["s0", "s1", "s3"]}
+p02_no_overlap: False | G (!(req & ack))
+{"kind": "finite_counterexample", "path": ["s0", "s1", "s3"]}
+p03_ack_to_idle: False | G (ack -> X idle)
+{"kind": "finite_counterexample", "path": ["s0", "s1", "s3", "s3"]}
+p04_response: False | G (req -> F ack)
+{"kind": "lasso_counterexample", "prefix": ["s0", "s1"], "cycle": ["s1", "s1"], "unanswered_request_at": 1}
+p05_recurring_ack: False | G F ack
+{"kind": "lasso_counterexample", "prefix": ["s0", "s1"], "cycle": ["s1", "s1"]}
+p06_error_reachable: True | EF error
+{"kind": "existential_witness", "path": ["s0", "s1", "s3"]}

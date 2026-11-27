@@ -1,0 +1,36 @@
+{
+  "name": "error_transition",
+  "initial": "s0",
+  "transitions": {
+    "s0": [
+      "s1"
+    ],
+    "s1": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "s2": [
+      "s0"
+    ],
+    "s3": [
+      "s3"
+    ]
+  },
+  "labels": {
+    "s0": [
+      "idle"
+    ],
+    "s1": [
+      "req"
+    ],
+    "s2": [
+      "ack"
+    ],
+    "s3": [
+      "error"
+    ]
+  },
+  "fairness": [],
+  "description": "Add s1->s3, making error reachable"
+}

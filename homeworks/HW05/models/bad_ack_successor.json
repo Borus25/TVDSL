@@ -1,0 +1,35 @@
+{
+  "name": "bad_ack_successor",
+  "initial": "s0",
+  "transitions": {
+    "s0": [
+      "s1"
+    ],
+    "s1": [
+      "s2"
+    ],
+    "s2": [
+      "s0",
+      "s1"
+    ],
+    "s3": [
+      "s3"
+    ]
+  },
+  "labels": {
+    "s0": [
+      "idle"
+    ],
+    "s1": [
+      "req"
+    ],
+    "s2": [
+      "ack"
+    ],
+    "s3": [
+      "error"
+    ]
+  },
+  "fairness": [],
+  "description": "Add ack->req transition, violating ack->X idle"
+}

@@ -1,0 +1,10 @@
+{
+  "repository": "Borus25/TVDSL",
+  "branch": "HW01",
+  "commit": "11c1fc6dbed182153011509323209dc50374a87c",
+  "hw4_cfg_blob": "daa0105178dd8c6998860a86d3576d3261e4a045",
+  "hw4_ir_blob": "6276902e1205c882fabfe5e095bd99568344aa1a",
+  "main_model": "P09 request-response, no fairness",
+  "external_tool_execution": "not_run; no NuSMV/nuXmv binary in environment",
+  "hw4_files_modified": false
+}

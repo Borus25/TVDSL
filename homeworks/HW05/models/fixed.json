@@ -1,0 +1,34 @@
+{
+  "name": "fixed",
+  "initial": "s0",
+  "transitions": {
+    "s0": [
+      "s1"
+    ],
+    "s1": [
+      "s2"
+    ],
+    "s2": [
+      "s0"
+    ],
+    "s3": [
+      "s3"
+    ]
+  },
+  "labels": {
+    "s0": [
+      "idle"
+    ],
+    "s1": [
+      "req"
+    ],
+    "s2": [
+      "ack"
+    ],
+    "s3": [
+      "error"
+    ]
+  },
+  "fairness": [],
+  "description": "Remove only s1->s1: request must advance to ack"
+}

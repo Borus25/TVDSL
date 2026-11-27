@@ -1,0 +1,101 @@
+[
+  {
+    "id": "p01_no_error",
+    "category": "safety",
+    "logic": "CTL",
+    "formula": "AG (!error)",
+    "description": "Ошибка никогда не достигается.",
+    "ctl": [
+      "AG",
+      [
+        "not",
+        "error"
+      ]
+    ]
+  },
+  {
+    "id": "p02_no_overlap",
+    "category": "safety",
+    "logic": "LTL",
+    "formula": "G (!(req & ack))",
+    "description": "Запрос и подтверждение не активны одновременно.",
+    "ctl": [
+      "AG",
+      [
+        "not",
+        [
+          "and",
+          "req",
+          "ack"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "p03_ack_to_idle",
+    "category": "safety",
+    "logic": "LTL",
+    "formula": "G (ack -> X idle)",
+    "description": "После подтверждения следующим состоянием является idle.",
+    "ctl": [
+      "AG",
+      [
+        "or",
+        [
+          "not",
+          "ack"
+        ],
+        [
+          "AX",
+          "idle"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "p04_response",
+    "category": "liveness",
+    "logic": "LTL",
+    "formula": "G (req -> F ack)",
+    "description": "Каждый запрос когда-нибудь получает подтверждение.",
+    "ctl": [
+      "AG",
+      [
+        "or",
+        [
+          "not",
+          "req"
+        ],
+        [
+          "AF",
+          "ack"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "p05_recurring_ack",
+    "category": "liveness",
+    "logic": "LTL",
+    "formula": "G F ack",
+    "description": "Подтверждения происходят бесконечно часто.",
+    "ctl": [
+      "AG",
+      [
+        "AF",
+        "ack"
+      ]
+    ]
+  },
+  {
+    "id": "p06_error_reachable",
+    "category": "existential_reachability",
+    "logic": "CTL",
+    "formula": "EF error",
+    "description": "Существует путь к ошибке: диагностический запрос, его ложность ожидаема в исправной модели.",
+    "ctl": [
+      "EF",
+      "error"
+    ]
+  }
+]
